@@ -6,8 +6,6 @@ import Base from "./Base";
 
 export default function Home() {
 
- 
-  
   return (
     <Base  navigation="" title="Atrium Leisure" description="Admin">
       <div className="row text-center">
