@@ -1,0 +1,29 @@
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+body {
+  background: #ffffff;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+table,th,td{
+  border: 1px solid #fff;
+  padding: 20px;   
+}
+
+th{
+  background-color: #f7fcfa;
+  
+}
+
+tr:hover{
+  background-color: #4b4b4b;
+  
+}
