@@ -215,12 +215,13 @@ const UpdateVenues = ({ match }) => {
         />
       </div><br/>
       <div className="form-group mt-2">
-      <label htmlFor="price">Price</label>
+      <label htmlFor="price">Price in Rupees</label>
         <input
           onChange={handleChange("price")}
         
           className="form-control"
-          placeholder="price "
+          placeholder="price ",
+          type = "number"
           value={price}
         />
       </div><br/>
@@ -241,7 +242,7 @@ const UpdateVenues = ({ match }) => {
         <button
           type="submit"
           onClick={onSubmit}
-          className="mb-3 rounded-pill" id="themeColor" style={{height:"55px"}}
+          className= "btn btn-outline-light text white rounded-pill" style={{height:"55px"}}
         >
           Update Venue
         </button>
