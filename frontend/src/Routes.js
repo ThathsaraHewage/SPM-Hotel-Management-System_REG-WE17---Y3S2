@@ -15,7 +15,11 @@ import HomeAfterLogin from "./core/Home";
 //profiles
 import userProfile from "./user/userProfile";
 
-
+//activities
+import ActivityMenu from "./admin/ActivityMenu";
+import AddNewActivity from "./admin/AddNewActivity";
+import UpdateActivity from "./admin/UpdateActivity";
+import ManageActivities from "./admin/ManageActivities";
 // import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
 ;
 
@@ -28,11 +32,11 @@ const Routes = () => {
         <Route path="/" exact component={Signin} />
 
         <UserRoutes path="/user/profile" exact component={userProfile}/>
+        <UserRoutes path="/admin/get-activities" exact component={ManageActivities} />
+        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateActivity}/>
+        <UserRoutes path="/admin/manage-activities" exact component={ActivityMenu}/>
+        <UserRoutes path="/admin/create/activity" exact component={AddNewActivity}/>
 
-       
-       
-        
-        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>
   );
