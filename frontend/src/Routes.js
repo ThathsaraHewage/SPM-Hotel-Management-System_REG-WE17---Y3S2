@@ -29,10 +29,15 @@ const Routes = () => {
 
         <UserRoutes path="/user/profile" exact component={userProfile}/>
 
-       
-       
+        <UserRoutes path="/admin/create/roomtype" exact component={AddNewVenueType}/>
+
+        <UserRoutes path="/admin/manage-venues" exact component={ManageRooms} />
         
-        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
+        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
+
+        <UserRoutes path="/admin/events-task" exact component={Accomodations}/>
+
+     
       </Switch>
     </BrowserRouter>
   );
