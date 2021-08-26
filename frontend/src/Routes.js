@@ -15,6 +15,11 @@ import HomeAfterLogin from "./core/Home";
 //profiles
 import userProfile from "./user/userProfile";
 
+//Accomodations
+import Accomodations from './user/Accomodations';
+import AddNewRoomType from "./admin/AddNewRoomType";
+import ManageRooms from "./admin/ManageRooms";
+import UpdateRooms from "./admin/UpdateRooms";
 
 // import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
 ;
@@ -29,8 +34,14 @@ const Routes = () => {
 
         <UserRoutes path="/user/profile" exact component={userProfile}/>
 
-       
-       
+        <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
+
+        <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
+        
+        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
+
+        <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
+
         
         {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>

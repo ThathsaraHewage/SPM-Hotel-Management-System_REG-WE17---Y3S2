@@ -7,14 +7,25 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+//My route
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
+const accomodationRoutes = require("./routes/accomodationRoutes");
+
 //database connection
 const connectDB = require('./database/dbConnect');
 connectDB();
+
 
 //Middelware
 app.use(bodyParser.json())
 app.use(cookieParser());
 app.use(cors());
+
+//Myroutes
+app.use("/api", authRoutes );
+app.use("/api", userRoutes );
+app.use("/api", accomodationRoutes );
 
 //Port
 const port = process.env.PORT || 8000;
