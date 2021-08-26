@@ -109,7 +109,7 @@ const AddNewVenueTypes = () => {
       </div><br/>
     
       <div className="form-group mt-2">
-      <label htmlFor="venueType">Venue Name</label>
+      <label htmlFor="venueType">Venue Type</label>
         <select
           onChange={handleChange("venueType")}
           type="text"
@@ -174,12 +174,13 @@ const AddNewVenueTypes = () => {
         />
       </div><br/>
       <div className="form-group mt-2">
-      <label htmlFor="price">Price</label>
+      <label htmlFor="price">Price in Rupees</label>
         <input
           onChange={handleChange("price")}
         
           className="form-control"
           placeholder="price "
+          type = "number"
           value={price}
         />
       </div><br/>
@@ -199,7 +200,7 @@ const AddNewVenueTypes = () => {
         <button
           type="submit"
           onClick={onSubmit}
-          className="rounded-pill" id="themeColor" style={{height:"55px"}}
+          className="btn btn-outline-light text white rounded-pill"  style={{height:"55px"}}
         >
           Add New Venue 
         </button>
@@ -217,7 +218,7 @@ const AddNewVenueTypes = () => {
         Go Back
       </Link>
 
-      <div className="row bg-dark text-white rounded" style={{height:"1000px"}}>
+      <div className="row bg-dark text-white rounded">
         <div className="col-md-8 offset-md-2 mt-3 py-3">
           {successMessage()}
           {AddNewVenueTypes()}

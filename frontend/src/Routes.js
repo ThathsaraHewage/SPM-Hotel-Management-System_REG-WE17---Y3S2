@@ -15,6 +15,11 @@ import HomeAfterLogin from "./core/Home";
 //profiles
 import userProfile from "./user/userProfile";
 
+//Accomodations
+import Accomodations from './user/Events';
+import AddNewVenueType from "./admin/AddNewVenueType";
+import ManageRooms from "./admin/ManageVenues";
+import UpdateRooms from "./admin/UpdateRooms";
 
 // import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
 ;
@@ -29,7 +34,7 @@ const Routes = () => {
 
         <UserRoutes path="/user/profile" exact component={userProfile}/>
 
-        <UserRoutes path="/admin/create/roomtype" exact component={AddNewVenueType}/>
+        <UserRoutes path="/admin/create/venuetype" exact component={AddNewVenueType}/>
 
         <UserRoutes path="/admin/manage-venues" exact component={ManageRooms} />
         
@@ -37,7 +42,8 @@ const Routes = () => {
 
         <UserRoutes path="/admin/events-task" exact component={Accomodations}/>
 
-     
+        
+        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>
   );
