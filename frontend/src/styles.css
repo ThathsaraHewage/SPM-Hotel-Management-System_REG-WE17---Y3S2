@@ -3,7 +3,11 @@
 .nav :hover {
   border-radius: 0px;
 }
+#themeColor {
 
+  background: #85929e;
+
+}
 body {
   background: #ffffff;
 }
