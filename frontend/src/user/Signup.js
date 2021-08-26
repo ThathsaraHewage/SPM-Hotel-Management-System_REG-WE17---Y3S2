@@ -79,7 +79,7 @@ const Signup = () => {
                   onClick={onSubmit}
                   className="btn btn-outline-primary rounded-pill"
                 >
-                  SignIn
+                  SignUp
                 </button>
               </div>
             </form>
