@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
@@ -7,19 +7,25 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+// dinning import
+const foodRoutes = require("./routes/foodRoutes");
+
 //database connection
-const connectDB = require('./database/dbConnect');
+const connectDB = require("./database/dbConnect");
 connectDB();
 
 //Middelware
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
 //Port
 const port = process.env.PORT || 8000;
 
+// dinning routes
+app.use("/api", foodRoutes);
+
 //starting a server
 app.listen(port, () => {
-    console.log(`Server is running on ${port}...`);
+  console.log(`Server is running on ${port}...`);
 });
