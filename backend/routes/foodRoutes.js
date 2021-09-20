@@ -6,10 +6,10 @@ const {
   getProductById,
   // addNewRoomType ,
   addNewFoodItem,
-  getProduct,
+  getFoodItem,
   photo,
   removeProduct,
-  updateProduct,
+  updateFoodItem,
   getAllRooms,
   getAllUniqueCategories,
 } = require("../controllers/foodController");
@@ -29,30 +29,29 @@ router.post(
   isSignedIn,
   isAuthenticated,
   isAdmin,
-  // addNewRoomType
   addNewFoodItem
 );
 
 //read routes
-router.get("/room/:productId", getProduct);
+router.get("/food/:productId", getFoodItem);
 router.get("/product/photo/:productId", photo);
 //update route
 router.put(
-  "/room/:productId/:userId",
+  "/food/:productId/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
-  updateProduct
+  updateFoodItem
 );
 //delete routes
 router.delete(
-  "/room/:productId/:userId",
+  "/food/:productId/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
   removeProduct
 );
-//listing all research papers route
-router.get("/room-types", getAllRooms);
+
+router.get("/food-items", getAllRooms);
 
 module.exports = router;

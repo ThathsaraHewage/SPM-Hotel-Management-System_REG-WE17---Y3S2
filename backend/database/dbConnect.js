@@ -8,11 +8,10 @@ const connection = async()=> {
             useNewUrlParser: true,
             useUnifiedTopology: true,
          });
-         // Connection to the database is successful
+         //connection is success message
          console.log('Database connection SUCCESS');
     }catch(err){
         console.log(err);
     }
 }
 module.exports = connection;
-

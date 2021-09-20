@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAutheticated } from "../auth/helper";
-import { deleteRoomType, getAllRoomTypes } from "./helper/userapicall";
+import { deleteFoodItem, getAllFoodItems } from "./helper/userapicall";
 import ImageHelper from "../core/helper/ImageHelper";
 
 const ManageFoodItems = () => {
@@ -11,7 +11,7 @@ const ManageFoodItems = () => {
   const { user, token } = isAutheticated();
 
   const preload = () => {
-    getAllRoomTypes().then((data) => {
+    getAllFoodItems().then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -25,7 +25,7 @@ const ManageFoodItems = () => {
   }, []);
 
   const deleteThisRoomType = (productId) => {
-    deleteRoomType(productId, user._id, token).then((data) => {
+    deleteFoodItem(productId, user._id, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {

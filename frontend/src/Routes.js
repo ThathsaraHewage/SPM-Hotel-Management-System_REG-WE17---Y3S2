@@ -15,7 +15,9 @@ import HomeAfterLogin from "./core/Home";
 //profiles
 import userProfile from "./user/userProfile";
 
-// Dinning imports
+//Accomodations
+import Accomodations from "./user/Dinning";
+// import AddNewRoomType from "./admin/AddNewRoomType";
 import UpdateFoodItem from "./admin/UpdateFoodItem";
 import AddNewFoodItem from "./admin/AddNewFoodItem";
 import ManageFoodItems from "./admin/ManageFoodItems";
@@ -29,10 +31,6 @@ const Routes = () => {
         <Route path="/login-home" exact component={HomeAfterLogin} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/" exact component={Signin} />
-
-        <UserRoutes path="/user/profile" exact component={userProfile} />
-
-        {/* Dinning Routes */}
 
         <UserRoutes path="/user/profile" exact component={userProfile} />
 
@@ -51,6 +49,8 @@ const Routes = () => {
         />
 
         <UserRoutes path="/dinning" exact component={Dinning} />
+
+        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>
   );

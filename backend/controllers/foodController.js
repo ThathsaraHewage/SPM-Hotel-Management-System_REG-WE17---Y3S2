@@ -117,7 +117,7 @@ exports.addNewFoodItem = (req, res) => {
 };
 
 ////////////////////////get items by id////////////////////////
-exports.getProduct = (req, res) => {
+exports.getFoodItem = (req, res) => {
   req.document.photo = undefined;
   return res.json(req.document);
 };
@@ -149,7 +149,7 @@ exports.removeProduct = (req, res) => {
 };
 
 /////////////////////update room type details////////////////////
-exports.updateProduct = (req, res) => {
+exports.updateFoodItem = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
 

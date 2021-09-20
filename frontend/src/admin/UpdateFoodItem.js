@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import {
-  getAllRoomTypes,
-  getProduct,
-  updateProduct,
+  getAllFoodItems,
+  getFoodItem,
+  updateFoodItem,
 } from "./helper/userapicall";
 import { isAutheticated } from "../auth/helper/index";
 
@@ -38,7 +38,7 @@ const UpdateFoodItem = ({ match }) => {
   } = values;
 
   const preload = (productId) => {
-    getProduct(productId).then((data) => {
+    getFoodItem(productId).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
@@ -57,7 +57,7 @@ const UpdateFoodItem = ({ match }) => {
   };
 
   const preloadCategories = () => {
-    getAllRoomTypes().then((data) => {
+    getAllFoodItems().then((data) => {
       if (data.error) {
         console.log("Finding the error !", data.err);
 
@@ -84,7 +84,7 @@ const UpdateFoodItem = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    updateProduct(match.params.productId, user._id, token, formData).then(
+    updateFoodItem(match.params.productId, user._id, token, formData).then(
       (data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
