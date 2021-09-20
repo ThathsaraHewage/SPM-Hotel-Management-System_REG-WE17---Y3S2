@@ -40,6 +40,14 @@ const Menu = ({ history }) => (
               SignIn
             </Link>
           </li>
+
+          {/* Dinning link */}
+
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/dinning">
+              Dinning
+            </Link>
+          </li>
         </Fragment>
       )}
 
@@ -85,15 +93,11 @@ const Menu = ({ history }) => (
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/admin/events-task">
+            <Link className="nav-link text-white" to="/dinning">
               Wedding and Events
             </Link>
           </li>
-          <li className="nav-item text-dark">
-           
-              ...............................................................................................................................................................................................................................................................................................................................................................
-            
-          </li>
+
           <li className="nav-item">
             <span
               className="nav-link text-warning"
@@ -113,5 +117,3 @@ const Menu = ({ history }) => (
 );
 
 export default withRouter(Menu);
-
-

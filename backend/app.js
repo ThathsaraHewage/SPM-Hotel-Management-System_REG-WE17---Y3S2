@@ -7,7 +7,9 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-// dinning import
+//My route
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 const foodRoutes = require("./routes/foodRoutes");
 
 //database connection
@@ -19,11 +21,13 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
+//Myroutes
+app.use("/api", authRoutes);
+app.use("/api", userRoutes);
+app.use("/api", foodRoutes);
+
 //Port
 const port = process.env.PORT || 8000;
-
-// dinning routes
-app.use("/api", foodRoutes);
 
 //starting a server
 app.listen(port, () => {

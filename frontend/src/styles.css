@@ -3,31 +3,30 @@
 .nav :hover {
   border-radius: 0px;
 }
+
 #themeColor {
-
   background: #85929e;
-
 }
+
 body {
   background: #ffffff;
 }
 
-table{
+table {
   width: 100%;
   border-collapse: collapse;
-  
 }
-table,th,td{
+table,
+th,
+td {
   border: 1px solid #fff;
-  padding: 20px;   
+  padding: 20px;
 }
 
-th{
-  background-color: #f7fcfa;
-  
+th {
+  background-color: #198754;
 }
 
-tr:hover{
+tr:hover {
   background-color: #4b4b4b;
-  
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
 import Base from "./Base";
-import Image from "./images/Kingsbury.png";
+import Image from "./images/Kingsbury.jpg";
 
 export default function Home() {
   return (
@@ -15,4 +15,3 @@ export default function Home() {
     </Base>
   );
 }
-
