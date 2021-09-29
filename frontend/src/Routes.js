@@ -28,6 +28,20 @@ import AddNewRoomType from "./admin/AddNewRoomType";
 import ManageRooms from "./admin/ManageRooms";
 import UpdateRooms from "./admin/UpdateRooms";
 
+
+//Dinning
+import UpdateFoodItem from "./admin/UpdateFoodItem";
+import AddNewFoodItem from "./admin/AddNewFoodItem";
+import ManageFoodItems from "./admin/ManageFoodItems";
+import Dinning from "./user/Dinning";
+
+//activity
+import ManageActivities from "./admin/ManageActivities";
+import ActivityMenu from "./admin/ActivityMenu";
+import AddNewActivity from "./admin/AddNewActivity";
+import EditActivity from "./admin/EditActivity";
+
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -53,12 +67,9 @@ const Routes = () => {
         />
 
         <UserRoutes path="/admin/create/venuetype" exact component={AddNewVenueType}/>
-
-        <UserRoutes path="/admin/manage-venues" exact component={ManageVenues} />
-        
-        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
-
-        <UserRoutes path="/admin/events-task" exact component={Events}/>
+       <UserRoutes path="/admin/manage-venues" exact component={ManageVenues} />
+      <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
+      <UserRoutes path="/admin/events-task" exact component={Events}/>
 
  
 
@@ -66,6 +77,16 @@ const Routes = () => {
     <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
     <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
     <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
+
+    <UserRoutes path="/admin/foodItem/new" exact component={AddNewFoodItem}/>
+    <UserRoutes path="/admin/foodItems" exact component={ManageFoodItems} />
+    <UserRoutes path="/admin/foodItem/:productId" exact component={UpdateFoodItem}/>
+    <UserRoutes path="/dinning" exact component={Dinning} />
+   
+    <UserRoutes path="/admin/get-activities" exact component={ManageActivities} />
+    <UserRoutes path="/admin/product/update/:productId" exact component={EditActivity}/>
+    <UserRoutes path="/admin/manage-activities" exact component={ActivityMenu}/>
+    <UserRoutes path="/admin/create/activity" exact component={AddNewActivity}/>
 
       </Switch>
     </BrowserRouter>
