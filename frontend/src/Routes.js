@@ -19,7 +19,14 @@ import Events from './user/Events';
 import AddNewVenueType from "./admin/AddNewVenueType";
 import ManageVenues from "./admin/ManageVenues";
 import UpdateVenues from "./admin/UpdateVenues";
+///////////////////////////Accomodations 
 
+//>Accomodation
+
+import Accomodations from './user/Accomodations';
+import AddNewRoomType from "./admin/AddNewRoomType";
+import ManageRooms from "./admin/ManageRooms";
+import UpdateRooms from "./admin/UpdateRooms";
 
 const Routes = () => {
   return (
@@ -52,6 +59,13 @@ const Routes = () => {
         <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
 
         <UserRoutes path="/admin/events-task" exact component={Events}/>
+
+ 
+
+    <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
+    <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
+    <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
+    <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
 
       </Switch>
     </BrowserRouter>
