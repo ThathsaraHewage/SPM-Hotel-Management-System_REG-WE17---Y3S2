@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { getAllActivities,getActivity,updateProduct} from "./helper/userapicall";
+import { getAllActivities,getActivity,updateActivity} from "./helper/userapicall";
 import { isAutheticated } from "../auth/helper/index";
 
-const UpdateActivity = ({ match }) => {
+const EditActivity = ({ match }) => {
   const { user, token } = isAutheticated();
   const [values, setValues] = useState({
     title: "",
@@ -83,7 +83,7 @@ const UpdateActivity = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    updateProduct(match.params.productId, user._id, token, formData).then(
+    updateActivity(match.params.productId, user._id, token, formData).then(
       (data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
@@ -252,4 +252,4 @@ const UpdateActivity = ({ match }) => {
   );
 };
 
-export default UpdateActivity;
+export default EditActivity;

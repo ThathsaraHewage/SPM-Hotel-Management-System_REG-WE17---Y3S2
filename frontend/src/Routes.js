@@ -28,7 +28,7 @@ import Dinning from "./user/Dinning";
 //activities
 import ActivityMenu from "./admin/ActivityMenu";
 import AddNewActivity from "./admin/AddNewActivity";
-import UpdateActivity from "./admin/UpdateActivity";
+import UpdateActivity from "./admin/EditActivity";
 import ManageActivities from "./admin/ManageActivities";
 
 
