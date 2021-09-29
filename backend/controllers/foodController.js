@@ -23,52 +23,6 @@ exports.getProductById = (req, res, next, id) => {
     });
 };
 
-///////////////////adding a new room type///////////////
-// exports.addNewRoomType = (req, res) => {
-//   let form = new formidable.IncomingForm();
-//   form.keepExtensions = true;
-
-//   form.parse(req, (err, fields, file) => {
-//     if (err) {
-//       return res.status(400).json({
-//         error: "problem with document !"
-//       });
-//     }
-
-//     //Destructuring the feilds
-//     const{ title, description, condition, rooms,price} = fields;
-
-//     //validating input fields
-//     if (!title || !description || !condition || !rooms || !price) {
-//         return res.status(400).json({
-//             error:"Sorry ! Please include all fields"
-//         });
-//     }
-
-//     let document = new Document(fields);
-
-//     //handle file here
-//     if (file.photo) {
-//       if (file.photo.size > 3000000) {
-//         return res.status(400).json({
-//           error: "File size too big!"
-//         });
-//       }
-//       document.photo.data = fs.readFileSync(file.photo.path)
-//       document.photo.contentType = file.photo.type;
-//     }
-
-//     //save all data to the DB
-//     document.save((err, document) => {
-//       if (err) {
-//         res.status(400).json({
-//           error: "Saving in DB failed"
-//         });
-//       }
-//       res.json(document);
-//     });
-//   });
-// };
 
 exports.addNewFoodItem = (req, res) => {
   let form = new formidable.IncomingForm();
@@ -116,13 +70,13 @@ exports.addNewFoodItem = (req, res) => {
   });
 };
 
-////////////////////////get items by id////////////////////////
+
 exports.getFoodItem = (req, res) => {
   req.document.photo = undefined;
   return res.json(req.document);
 };
 
-////////////////////////middleware/////////////////////////////
+
 exports.photo = (req, res, next) => {
   if (req.document.photo.data) {
     res.set("Content-Type", req.document.photo.contentType);
@@ -148,7 +102,7 @@ exports.removeProduct = (req, res) => {
   });
 };
 
-/////////////////////update room type details////////////////////
+
 exports.updateFoodItem = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
@@ -178,7 +132,7 @@ exports.updateFoodItem = (req, res) => {
     document.save((err, document) => {
       if (err) {
         res.status(400).json({
-          error: "Updation of room type is failed!",
+          error: "Updation of food item is failed!",
         });
       }
       res.json(document);
@@ -186,7 +140,7 @@ exports.updateFoodItem = (req, res) => {
   });
 };
 
-/////////////////listing all room types controller//////////
+
 exports.getAllRooms = (req, res) => {
   let limit = req.query.limit ? parseInt(req.query.limit) : 8;
   let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
@@ -205,7 +159,7 @@ exports.getAllRooms = (req, res) => {
     });
 };
 
-///////////////////get all unique items///////////////////////////
+
 exports.getAllUniqueCategories = (req, res) => {
   Document.distinct("category", {}, (err, category) => {
     if (err) {

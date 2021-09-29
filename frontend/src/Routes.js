@@ -7,23 +7,17 @@ import Signup from "./user/Signup";
 
 //role routes
 import UserRoutes from "./auth/helper/AdminRoutes";
-import PrivateRoutes from "./auth/helper/PrivateRoutes";
 
 //management dashboards
 import HomeAfterLogin from "./core/Home";
 
 //profiles
 import userProfile from "./user/userProfile";
-
-//Accomodations
-import Accomodations from "./user/Dinning";
-// import AddNewRoomType from "./admin/AddNewRoomType";
 import UpdateFoodItem from "./admin/UpdateFoodItem";
 import AddNewFoodItem from "./admin/AddNewFoodItem";
 import ManageFoodItems from "./admin/ManageFoodItems";
 import Dinning from "./user/Dinning";
 
-// import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -49,8 +43,6 @@ const Routes = () => {
         />
 
         <UserRoutes path="/dinning" exact component={Dinning} />
-
-        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>
   );

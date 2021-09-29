@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link, Redirect } from "react-router-dom";
 import { isAutheticated } from "../auth/helper";
-// import { AddNewRoomType } from "./helper/userapicall";
 import { AddNewFoodItem } from "./helper/userapicall";
 import ManageFoodItems from "./ManageFoodItems";
 
@@ -10,19 +9,7 @@ const AddNewRoomTypes = () => {
   const { user, token } = isAutheticated();
 
   const [values, setValues] = useState({
-    // title: "",
-    // description: "",
-    // condition: "",
-    // rooms: "",
-    // price:"",
-    // photo: "",
-    // loading: false,
-    // error: "",
-    // createdProduct: "",
-    // getaRedirect: false,
-    // formData: "",
-
-    name: "",
+       name: "",
     description: "",
     price: "",
     category: "",

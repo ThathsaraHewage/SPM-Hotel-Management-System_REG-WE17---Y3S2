@@ -42,8 +42,6 @@ export const deleteFoodItem = (productId, userId, token) => {
     .catch((err) => console.log(err));
 };
 
-//not modified
-
 export const getFoodItem = (productId) => {
   return fetch(`${API}/food/${productId}`, {
     method: "GET",

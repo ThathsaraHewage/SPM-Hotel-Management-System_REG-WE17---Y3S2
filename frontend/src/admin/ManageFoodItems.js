@@ -24,7 +24,7 @@ const ManageFoodItems = () => {
     preload();
   }, []);
 
-  const deleteThisRoomType = (productId) => {
+  const deleteThisFoodItem = (productId) => {
     deleteFoodItem(productId, user._id, token).then((data) => {
       if (data.error) {
         console.log(data.error);
@@ -100,8 +100,7 @@ const ManageFoodItems = () => {
                       <td>{FoodItem.category}</td>
                       <td>{FoodItem.discount}</td>
                       <td>{FoodItem.price}</td>
-                      <td>{FoodItem.status}</td>
-                      {/* <td>{ResearchPapers.price}</td> */}
+                      <td>{FoodItem.status}</td>                      
 
                       <td>
                         <Link
@@ -114,7 +113,7 @@ const ManageFoodItems = () => {
                       <td>
                         <button
                           onClick={() => {
-                            deleteThisRoomType(FoodItem._id);
+                            deleteThisFoodItem(FoodItem._id);
                           }}
                           className="btn btn-danger"
                         >
