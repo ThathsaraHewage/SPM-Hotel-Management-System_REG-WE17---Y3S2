@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAutheticated } from "../auth/helper";
-import { deleteActivities,getAllActivities } from "./helper/activityAPIcall";
+import { deleteActivities,getAllActivities } from "./helper/userapicall";
 import ImageHelper from "../core/helper/ImageHelper";
 
 const ManageActivities = () => {

@@ -20,8 +20,7 @@ import ActivityMenu from "./admin/ActivityMenu";
 import AddNewActivity from "./admin/AddNewActivity";
 import UpdateActivity from "./admin/UpdateActivity";
 import ManageActivities from "./admin/ManageActivities";
-// import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
-;
+
 
 const Routes = () => {
   return (

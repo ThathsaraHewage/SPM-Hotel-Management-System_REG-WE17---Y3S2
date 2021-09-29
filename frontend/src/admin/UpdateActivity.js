@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { getAllActivities,getProduct,updateProduct} from "./helper/activityAPIcall";
+import { getAllActivities,getProduct,updateProduct} from "./helper/userapicall";
 import { isAutheticated } from "../auth/helper/index";
 
 const UpdateActivity = ({ match }) => {

@@ -155,17 +155,5 @@ exports.getAllActivities = (req,res) => {
 }
 
 
-/*get all unique items*/
-// exports.getAllUniqueCategories = (req, res) => {
-//     Document.distinct("category", {}, (err, category) => {
-//         if (err) {
-//             return res.status(400).json({
-//                 error: "NO item found"
-//             });
-//         }
-//         res.json(category);
-//     });
-// }
-
 
 

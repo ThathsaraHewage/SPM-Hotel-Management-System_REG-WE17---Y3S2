@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAutheticated } from "../auth/helper";
-import { addNewActivity } from "./helper/activityAPIcall";
+import { addNewActivity } from "./helper/userapicall";
 
 const AddNewActivity = () => {
     const { user, token } = isAutheticated();
