@@ -7,10 +7,12 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-//My route
+//Routes relates to venues
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
-const accomodationRoutes = require("./routes/accomodationRoutes");
+const venueRoutes = require("./routes/venueRoutes");
+
+
 
 //database connection
 const connectDB = require('./database/dbConnect');
@@ -22,10 +24,11 @@ app.use(bodyParser.json())
 app.use(cookieParser());
 app.use(cors());
 
-//Myroutes
+//Routes relates to venues
 app.use("/api", authRoutes );
 app.use("/api", userRoutes );
-app.use("/api", accomodationRoutes );
+app.use("/api", venueRoutes );
+
 
 //Port
 const port = process.env.PORT || 8000;

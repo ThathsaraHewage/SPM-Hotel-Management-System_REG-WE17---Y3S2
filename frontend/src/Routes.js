@@ -16,10 +16,10 @@ import HomeAfterLogin from "./core/Home";
 import userProfile from "./user/userProfile";
 
 //Accomodations
-import Accomodations from './user/Accomodations';
-import AddNewRoomType from "./admin/AddNewRoomType";
-import ManageRooms from "./admin/ManageRooms";
-import UpdateRooms from "./admin/UpdateRooms";
+import Accomodations from './user/Events';
+import AddNewVenueType from "./admin/AddNewVenueType";
+import ManageVenues from "./admin/ManageVenues";
+import UpdateVenues from "./admin/UpdateVenues";
 
 // import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
 ;
@@ -34,13 +34,13 @@ const Routes = () => {
 
         <UserRoutes path="/user/profile" exact component={userProfile}/>
 
-        <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
+        <UserRoutes path="/admin/create/venuetype" exact component={AddNewVenueType}/>
 
-        <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
+        <UserRoutes path="/admin/manage-venues" exact component={ManageVenues} />
         
-        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
+        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
 
-        <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
+        <UserRoutes path="/admin/events-task" exact component={Accomodations}/>
 
         
         {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
