@@ -16,12 +16,11 @@ import HomeAfterLogin from "./core/Home";
 import userProfile from "./user/userProfile";
 
 //Accomodations
-import Accomodations from './user/Events';
+import Events from './user/Events';
 import AddNewVenueType from "./admin/AddNewVenueType";
 import ManageVenues from "./admin/ManageVenues";
 import UpdateVenues from "./admin/UpdateVenues";
 
-// import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
 ;
 
 const Routes = () => {
@@ -40,10 +39,8 @@ const Routes = () => {
         
         <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
 
-        <UserRoutes path="/admin/events-task" exact component={Accomodations}/>
+        <UserRoutes path="/admin/events-task" exact component={Events}/>
 
-        
-        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>
   );
