@@ -14,7 +14,7 @@ import HomeAfterLogin from "./core/Home";
 //profiles
 import userProfile from "./user/userProfile";
 
-//Accomodations
+//Events
 import Events from './user/Events';
 import AddNewVenueType from "./admin/AddNewVenueType";
 import ManageVenues from "./admin/ManageVenues";
