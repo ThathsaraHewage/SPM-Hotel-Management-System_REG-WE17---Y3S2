@@ -58,9 +58,9 @@ userSchema.methods = {
     if (!plainpassword) return "";
     try {
       return crypto
-        .createHmac('sha256', this.salt)
+        .createHmac("sha256", this.salt)
         .update(plainpassword)
-        .digest('hex');
+        .digest("hex");
     } catch (err) {
       return "";
     }
