@@ -56,7 +56,7 @@ export const getAllFoodItems = () => {
 /////////////delete a room type from the list///////////////////////
 export const deleteVenueType = (productId, userId, token) => {
     return fetch(`${API}/venue/${productId}/${userId}`, {
-      method: "POST",
+      method: "DELETE",
         headers: {
             Accept: "application/json",
             Authorization: `Bearer ${token}`,
@@ -110,11 +110,18 @@ export const getAllActivities = () => {
 
 
 
-
-
 export const getProduct = productId => {
     return fetch(`${API}/venue/${productId}`, {
-  export const getProduct = productId => {
+      method: "GET"
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  
+  export const getActivity = productId => {
     return fetch(`${API}/activity/${productId}`, {
       method: "GET"
     })
@@ -124,25 +131,22 @@ export const getProduct = productId => {
       .catch((err) => console.log(err));
   };
 
-export const updateProduct = (productId, userId, token, product) => {
-  return fetch(`${API}/venue/${productId}/${userId}`, {
-  return fetch(`${API}/activity/${productId}/${userId}`, {
-    method: "PUT",
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${token}`
-    },
-    body: product
-  })
-    .then(response => {
-      return response.json();
+  export const updateActivity = (productId, userId, token, product) => {
+
+    return fetch(`${API}/activity/${productId}/${userId}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: product
     })
-    .catch(err => console.log(err));
-};
+      .then(response => {
+        return response.json();
+      })
+      .catch(err => console.log(err));
+  };
 
-
-
-/////////////delete food item from the list///////////////////////
 export const deleteFoodItem = (productId, userId, token) => {
   return fetch(`${API}/food/${productId}/${userId}`, {
     method: "DELETE",
@@ -150,16 +154,6 @@ export const deleteFoodItem = (productId, userId, token) => {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => console.log(err));
-};
-
-export const getFoodItem = (productId) => {
-  return fetch(`${API}/food/${productId}`, {
-    method: "GET",
   })
     .then((response) => {
       return response.json();
@@ -181,3 +175,30 @@ export const updateFoodItem = (productId, userId, token, product) => {
     })
     .catch((err) => console.log(err));
 };
+
+
+export const getFoodItem = (productId) => {
+  return fetch(`${API}/food/${productId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateProduct = (productId, userId, token, product) => {
+  return fetch(`${API}/venue/${productId}/${userId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: product
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+

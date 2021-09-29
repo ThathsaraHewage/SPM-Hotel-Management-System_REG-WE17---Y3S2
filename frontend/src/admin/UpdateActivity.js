@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { getAllActivities,getProduct,updateProduct} from "./helper/userapicall";
+import { getAllActivities,getActivity,updateProduct} from "./helper/userapicall";
 import { isAutheticated } from "../auth/helper/index";
 
 const UpdateActivity = ({ match }) => {
@@ -36,7 +36,7 @@ const UpdateActivity = ({ match }) => {
   } = values;
 
   const preload = (productId) => {
-    getProduct(productId).then((data) => {
+    getActivity(productId).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
