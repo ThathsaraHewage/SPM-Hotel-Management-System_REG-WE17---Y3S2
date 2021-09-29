@@ -7,15 +7,15 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
-//Routes relates to venues
-const venueRoutes = require("./routes/venueRoutes");
-
-
-//My route
+//common routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+//Routes relates to venues
+const venueRoutes = require("./routes/venueRoutes");
+//Food routes
 const foodRoutes = require("./routes/foodRoutes");
-
+//activity routes
+const activityRoutes = require("./routes/activityRoutes");
 //database connection
 const connectDB = require("./database/dbConnect");
 connectDB();
@@ -25,16 +25,15 @@ connectDB();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-
-//Routes relates to venues
-
-app.use("/api", venueRoutes );
-
-//food item routes
+//common routes
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+//Routes relates to venues
+app.use("/api", venueRoutes );
+//food item routes
 app.use("/api", foodRoutes);
-
+//activity routes
+app.use("/api", activityRoutes);
 //Port
 const port = process.env.PORT || 8000;
 
