@@ -2,7 +2,7 @@ import { API } from "../../backend";
 
 ///////////////////////add research paper call by the Researcher////////////////////
 export const AddNewVenueType = (userId, token, product) => {
-  return fetch(`${API}/new-room-type/add/${userId}`, {
+  return fetch(`${API}/new-venue-type/add/${userId}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -18,7 +18,7 @@ export const AddNewVenueType = (userId, token, product) => {
 
 /////////// Display all room types in the table view //////////////////
 export const getAllVenueTypes = () => {
-  return fetch(`${API}/room-types`, {
+  return fetch(`${API}/venue-types`, {
     method: "GET",
   })
     .then((response) => {
@@ -30,7 +30,7 @@ export const getAllVenueTypes = () => {
 
 /////////////delete a room type from the list///////////////////////
 export const deleteVenueType = (productId, userId, token) => {
-    return fetch(`${API}/room/${productId}/${userId}`, {
+    return fetch(`${API}/venue/${productId}/${userId}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -48,7 +48,7 @@ export const deleteVenueType = (productId, userId, token) => {
 //not modified
 
 export const getProduct = productId => {
-    return fetch(`${API}/room/${productId}`, {
+    return fetch(`${API}/venue/${productId}`, {
       method: "GET"
     })
       .then((response) => {
@@ -58,7 +58,7 @@ export const getProduct = productId => {
   };
 
 export const updateProduct = (productId, userId, token, product) => {
-  return fetch(`${API}/room/${productId}/${userId}`, {
+  return fetch(`${API}/venue/${productId}/${userId}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",

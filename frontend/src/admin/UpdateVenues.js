@@ -220,7 +220,7 @@ const UpdateVenues = ({ match }) => {
           onChange={handleChange("price")}
         
           className="form-control"
-          placeholder="price ",
+          placeholder="price "
           type = "number"
           value={price}
         />
