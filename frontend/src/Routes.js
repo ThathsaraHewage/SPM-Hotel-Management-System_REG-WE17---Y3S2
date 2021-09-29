@@ -14,22 +14,11 @@ import HomeAfterLogin from "./core/Home";
 //profiles
 import userProfile from "./user/userProfile";
 
-//Venue
-import Accomodations from './user/Events';
+//Accomodations
+import Events from './user/Events';
 import AddNewVenueType from "./admin/AddNewVenueType";
 import ManageVenues from "./admin/ManageVenues";
 import UpdateVenues from "./admin/UpdateVenues";
-
-//Food
-import UpdateFoodItem from "./admin/UpdateFoodItem";
-import AddNewFoodItem from "./admin/AddNewFoodItem";
-import ManageFoodItems from "./admin/ManageFoodItems";
-import Dinning from "./user/Dinning";
-//activities
-import ActivityMenu from "./admin/ActivityMenu";
-import AddNewActivity from "./admin/AddNewActivity";
-import UpdateActivity from "./admin/EditActivity";
-import ManageActivities from "./admin/ManageActivities";
 
 
 const Routes = () => {
@@ -62,13 +51,7 @@ const Routes = () => {
         
         <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
 
-        <UserRoutes path="/admin/events-task" exact component={Accomodations}/>      
-        <UserRoutes path="/dinning" exact component={Dinning} />
-        <UserRoutes path="/user/profile" exact component={userProfile}/>
-        <UserRoutes path="/admin/get-activities" exact component={ManageActivities} />
-        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateActivity}/>
-        <UserRoutes path="/admin/manage-activities" exact component={ActivityMenu}/>
-        <UserRoutes path="/admin/create/activity" exact component={AddNewActivity}/>
+        <UserRoutes path="/admin/events-task" exact component={Events}/>
 
       </Switch>
     </BrowserRouter>
