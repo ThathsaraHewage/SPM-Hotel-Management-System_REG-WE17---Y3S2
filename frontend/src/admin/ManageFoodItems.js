@@ -6,7 +6,7 @@ import { deleteFoodItem, getAllFoodItems } from "./helper/userapicall";
 import ImageHelper from "../core/helper/ImageHelper";
 
 const ManageFoodItems = () => {
-  const [FoodItem, setRoomTypes] = useState([]);
+  const [FoodItem, setFoodItem] = useState([]);
 
   const { user, token } = isAutheticated();
 
@@ -15,7 +15,8 @@ const ManageFoodItems = () => {
       if (data.error) {
         console.log(data.error);
       } else {
-        setRoomTypes(data);
+        setFoodItem(data);
+        console.log(data);
       }
     });
   };
@@ -100,7 +101,7 @@ const ManageFoodItems = () => {
                       <td>{FoodItem.category}</td>
                       <td>{FoodItem.discount}</td>
                       <td>{FoodItem.price}</td>
-                      <td>{FoodItem.status}</td>                      
+                      <td>{FoodItem.status}</td>
 
                       <td>
                         <Link

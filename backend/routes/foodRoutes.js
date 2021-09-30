@@ -10,8 +10,7 @@ const {
   photo,
   removeProduct,
   updateFoodItem,
-  getAllRooms,
-  getAllUniqueCategories,
+  getAllFoodItems,
 } = require("../controllers/foodController");
 
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
@@ -52,6 +51,6 @@ router.delete(
   removeProduct
 );
 
-router.get("/food-items", getAllRooms);
+router.get("/food-items", getAllFoodItems);
 
 module.exports = router;

@@ -23,7 +23,6 @@ exports.getProductById = (req, res, next, id) => {
     });
 };
 
-
 exports.addNewFoodItem = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
@@ -70,16 +69,15 @@ exports.addNewFoodItem = (req, res) => {
   });
 };
 
-
 exports.getFoodItem = (req, res) => {
   req.document.photo = undefined;
   return res.json(req.document);
 };
 
-
 exports.photo = (req, res, next) => {
   if (req.document.photo.data) {
     res.set("Content-Type", req.document.photo.contentType);
+    console.log(req.document);
     return res.send(req.document.photo.data);
   }
   next();
@@ -101,7 +99,6 @@ exports.removeProduct = (req, res) => {
     });
   });
 };
-
 
 exports.updateFoodItem = (req, res) => {
   let form = new formidable.IncomingForm();
@@ -140,8 +137,7 @@ exports.updateFoodItem = (req, res) => {
   });
 };
 
-
-exports.getAllRooms = (req, res) => {
+exports.getAllFoodItems = (req, res) => {
   let limit = req.query.limit ? parseInt(req.query.limit) : 8;
   let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
   Document.find()
@@ -157,16 +153,4 @@ exports.getAllRooms = (req, res) => {
       }
       res.json(documents);
     });
-};
-
-
-exports.getAllUniqueCategories = (req, res) => {
-  Document.distinct("category", {}, (err, category) => {
-    if (err) {
-      return res.status(400).json({
-        error: "NO item found",
-      });
-    }
-    res.json(category);
-  });
 };

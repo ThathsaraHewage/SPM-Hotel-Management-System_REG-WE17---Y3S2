@@ -1,6 +1,5 @@
 import { API } from "../../backend";
 
-///////////////////////add research paper call by the Researcher////////////////////
 export const AddNewFoodItem = (userId, token, product) => {
   return fetch(`${API}/new-food-item/add/${userId}`, {
     method: "POST",
