@@ -50,7 +50,7 @@ import OrderFoodItems from "./customer/orderFoodItems";
 
 import ViewAllActivities from "./customer/ViewAllActivities";
 import BookActivity from "./customer/BookActivity";
-import generateReport from "./admin/generateReport";
+
 
 const Routes = () => {
   return (
@@ -156,11 +156,9 @@ const Routes = () => {
         <Route path="/customer/detailedVenue" exact component={DetailedVenue}/>
         <Route path="/book/venue/:venueId" exact component={Booking_venueDetails}/>
         <Route path="/customer/bookingVenue" exact component={booking_venue}/>
-         {/* events -cutomer*/}
-         {/* <Route path="/view/viewVenues" exact component={ViewVenues} /> */}
+        <Route path="/customer/viewactivity" exact component={ViewAllActivities}/>
+        <Route path="/customer/bookactivity" exact component={BookActivity}/>
 
-
-        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
         <UserRoutes path="/admin/events-task" exact component={Events}/>
 
         <UserRoutes path="/dinning" exact component={Dinning} />
@@ -179,14 +177,14 @@ const Routes = () => {
     <UserRoutes path="/admin/product/update/:productId" exact component={EditActivity}/>
     <UserRoutes path="/admin/manage-activities" exact component={ActivityMenu}/>
     <UserRoutes path="/admin/create/activity" exact component={AddNewActivity}/>
-    <UserRoutes path="/admin/generate-report" exact component={generateReport}/>
-    <Route path="/customer/viewactivity" exact component={ViewAllActivities}/>
-        <Route path="/customer/bookactivity" exact component={BookActivity}/>
+  
+    
 
         <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
         <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
         <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
         <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
+
       </Switch>
     </BrowserRouter>
   );

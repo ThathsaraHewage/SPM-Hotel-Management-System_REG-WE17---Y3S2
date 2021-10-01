@@ -41,7 +41,7 @@ app.use("/api", activityRoutes);
 app.use("/api",accomodationRoutes);
 
 //Port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 //starting a server
 app.listen(port, () => {
