@@ -2,10 +2,10 @@ import React from "react";
 import Menu from "./Menu";
 
 const Base = ({
-  navigation="",
+  navigation="Navigate Me",
   title = "My Title",
   description = "My Description",
-  className = "bg-white text-dark ",
+  className = "bg-white text-dark p-4",
   children,
 }) => {
   return (

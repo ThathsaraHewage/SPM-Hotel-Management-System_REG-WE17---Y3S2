@@ -8,22 +8,22 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
-
+    // type:"",
     error: "",
-    success: false,
+    success: false
   });
 
   const { name, email, password, error, success } = values;
 
-  const handleChange = (name) => (event) => {
+  const handleChange = name => event => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = event => {
     event.preventDefault();
     setValues({ ...values, error: false });
     signup({ name, email, password })
-      .then((data) => {
+      .then(data => {
         if (data.error) {
           setValues({ ...values, error: data.error, success: false });
         } else {
@@ -32,8 +32,9 @@ const Signup = () => {
             name: "",
             email: "",
             password: "",
+            // type:"",
             error: "",
-            success: true,
+            success: true
           });
         }
       })
@@ -43,47 +44,55 @@ const Signup = () => {
   const signUpForm = () => {
     return (
       <div className="row">
-        <div className="card">
-          <div className="col-md-6 offset-sm-3 text-left">
-            <form>
-              <div className="form-group py-2">
-                <label className="text-dark">Name</label>
-                <input
-                  className="form-control"
-                  onChange={handleChange("name")}
-                  type="text"
-                  value={name}
-                />
-              </div>
-              <div className="form-group py-2">
-                <label className="text-dark">Email</label>
-                <input
-                  className="form-control"
-                  onChange={handleChange("email")}
-                  type="email"
-                  value={email}
-                />
-              </div>
+        <div className="col-md-6 offset-sm-3 text-left">
+          <form>
+            <div className="form-group py-2">
+              <label className="text-dark">Name</label>
+              <input
+                className="form-control"
+                onChange={handleChange("name")}
+                type="text"
+                value={name}
+              />
+            </div>
+            <div className="form-group py-2">
+              <label className="text-dark">Email</label>
+              <input
+                className="form-control"
+                onChange={handleChange("email")}
+                type="email"
+                value={email}
+              />
+            </div>
+              {/* <div className="form-group py-2">
+              <label className="text-dark">Type</label>
+              <select
+                className="form-control"
+                onChange={handleChange("type")}
+                type="text"
+                value={type}
+              >
+                  <option>select one...</option>
+                  <option>Attendee</option>
+                  <option>Reseacher | Workshop presenter</option>
+                  <option>Both</option>
+              </select>
+            </div> */}
 
-              <div className="form-group py-2">
-                <label className="text-dark">Password</label>
-                <input
-                  onChange={handleChange("password")}
-                  className="form-control"
-                  type="password"
-                  value={password}
-                />
-              </div>
-              <div className="d-grid py-4">
-                <button
-                  onClick={onSubmit}
-                  className="btn btn-outline-primary rounded-pill"
-                >
-                  SignUp
-                </button>
-              </div>
-            </form>
-          </div>
+
+            <div className="form-group py-2">
+              <label className="text-dark">Password</label>
+              <input
+                onChange={handleChange("password")}
+                className="form-control"
+                type="password"
+                value={password}
+              />
+            </div>
+            <div className="d-grid py-4">
+               <button onClick={onSubmit} className="btn btn-outline-dark rounded-pill">SignIn</button>
+            </div>
+          </form>
         </div>
       </div>
     );
@@ -97,7 +106,7 @@ const Signup = () => {
             className="alert alert-success"
             style={{ display: success ? "" : "none" }}
           >
-            Your account on Atrium was created successfully. Please
+            Your account was created successfully. Please
             <Link to="/"> Click here to Login </Link>
           </div>
         </div>
@@ -121,24 +130,14 @@ const Signup = () => {
   };
 
   return (
-    <Base
-      navigation="landingPage  >  register page"
-      title="Register"
-      description="Create your account on Atrium"
-    >
+    <Base navigation=""
+     title="Register" description="Create your account">
       {successMessage()}
       {errorMessage()}
       {signUpForm()}
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <center>
-        <p style={{ color: "gray", fontSize: "14px" }}>
-          2021 ICAF, all rights reserved.
-        </p>
-      </center>
+      <br/><br/><br/><br/>
+      <center><p style={{color:"gray",fontSize:"14px"}}>2021 Atrium Leisure, all rights reserved.</p></center>
     </Base>
   );
 };

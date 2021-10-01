@@ -3,12 +3,16 @@ const router = express.Router();
 
 //importing////////////////////////////////////////////////////////////
 const { getProductById,
+         getRoomById,
         addNewRoomType ,
         getProduct,
+        getRoom,
         photo,
         removeProduct,
         updateProduct,
         getAllRooms,
+        getACRooms,
+        getnonACRooms,
         getAllUniqueCategories
 } = require("../controllers/accomodationController");
 
@@ -48,5 +52,19 @@ router.delete("/room/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, r
 //listing all research papers route
 router.get("/room-types",getAllRooms);
 
+
+//////////////////////////////
+//customer apis:::::::::::::::
+//////////////////////////////
+
+//listing all ac rooms to customer
+router.get("/room-types/ac",getACRooms);
+//listing all non ac rooms to customer
+router.get("/room-types/non-ac",getnonACRooms)
+
+//rooms id
+router.param("roomId", getRoomById);
+
+router.get("/room/:roomId",getRoom);
 
 module.exports = router;

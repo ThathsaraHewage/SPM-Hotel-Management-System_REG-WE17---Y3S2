@@ -140,7 +140,7 @@ exports.updateProduct = (req,res) => {
   });
 };
 
-/////////////////listing all room types controller//////////
+/////////////////listing all room types controller - admin view //////////
 exports.getAllRooms = (req,res) => {
     let limit = req.query.limit ? parseInt(req.query.limit) : 8 ;
     let sortBy = req.query.sortBy ? req.query.sortBy : "_id" ;
@@ -160,6 +160,45 @@ exports.getAllRooms = (req,res) => {
     });
 }
 
+/////////////////listing all AC rooms controller - customer view //////////
+exports.getACRooms = (req,res) => {
+  let limit = req.query.limit ? parseInt(req.query.limit) : 8 ;
+  let sortBy = req.query.sortBy ? req.query.sortBy : "_id" ;
+
+  Document.find({"condition":"AC"})
+  .select("-photo")
+  .populate("category")
+  .sort([[ sortBy, "asc"]])
+  .limit(limit)
+  .exec((err, documents) => {
+      if (err) {
+          return res.status(400).json({
+              error: "NO documents found"
+          });
+      }
+      res.json(documents);
+  });
+}
+
+/////////////////listing all AC rooms controller - customer view //////////
+exports.getnonACRooms = (req,res) => {
+  let limit = req.query.limit ? parseInt(req.query.limit) : 8 ;
+  let sortBy = req.query.sortBy ? req.query.sortBy : "_id" ;
+
+  Document.find({"condition":"Non-AC"})
+  .select("-photo")
+  .populate("category")
+  .sort([[ sortBy, "asc"]])
+  .limit(limit)
+  .exec((err, documents) => {
+      if (err) {
+          return res.status(400).json({
+              error: "NO documents found"
+          });
+      }
+      res.json(documents);
+  });
+}
 
 ///////////////////get all unique items///////////////////////////
 exports.getAllUniqueCategories = (req, res) => {
@@ -173,3 +212,75 @@ exports.getAllUniqueCategories = (req, res) => {
     });
 }
 
+
+//////////////////////////////////////////////////////////////////////////
+///////////////////////////Customer Controllers///////////////////////////
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
+////////////////////////get room////////////////////////
+exports.getRoom = (req, res) => {
+  req.document.photo = undefined;
+  return res.json(req.document)
+};
+
+
+/////////////////////////get room by id///////////////////////////
+exports.getRoomById = (req, res, next, id) => {
+  Document.findById(id)
+    .populate("category")
+    .exec((err, document) => {
+      if (err) {
+        return res.status(400).json({
+          error: "Room Type not found"
+        });
+      }
+      req.document = document;
+      next();
+    });
+};
+
+///////////////////adding a new room type///////////////
+exports.addBooking = (req, res) => {
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+
+  form.parse(req, (err, fields, file) => {
+    if (err) {
+      return res.status(400).json({
+        error: "problem with document !"
+      });
+    }
+
+    //Destructuring the feilds
+    const{ title, condition, firstname, lastname,address,city,days,checkindate,norooms,holdersname,cardnumber,cvv,expdate} = fields;
+
+    //validating input fields
+    if (!title || !condition || !firstname || !lastname || !address) {
+        return res.status(400).json({
+            error:"Sorry ! Please include all fields"
+        });
+    }
+
+    let document = new Document(fields);
+
+    //handle file here
+    if (file.photo) {
+      if (file.photo.size > 3000000) {
+        return res.status(400).json({
+          error: "File size too big!"
+        });
+      }
+      document.photo.data = fs.readFileSync(file.photo.path)
+      document.photo.contentType = file.photo.type;
+    }
+
+    //save all data to the DB
+    document.save((err, document) => {
+      if (err) {
+        res.status(400).json({
+          error: "Saving in DB failed"
+        });
+      }
+      res.json(document);
+    });
+  });
+};

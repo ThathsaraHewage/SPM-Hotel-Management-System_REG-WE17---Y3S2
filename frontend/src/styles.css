@@ -3,11 +3,7 @@
 .nav :hover {
   border-radius: 0px;
 }
-#themeColor {
 
-  background: #85929e;
-
-}
 body {
   background: #ffffff;
 }
@@ -22,8 +18,17 @@ table,th,td{
   padding: 20px;   
 }
 
+#themeColor{
+  background: #85989e;
+}
+
+#themeColorCustomer{
+  background: #0077ff;
+}
+
+
 th{
-  background-color: #f7fcfa;
+  background-color: #198754;
   
 }
 
