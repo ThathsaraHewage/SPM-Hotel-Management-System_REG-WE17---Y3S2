@@ -14,7 +14,7 @@ const Events = () => {
         <center>
         <ul className="list-group">
           <li className="list-group-item">
-              <Link to="/admin/create/roomtype" className="nav-link text-dark">Add Venue Details</Link>
+              <Link to="/admin/create/venuetype" className="nav-link text-dark">Add Venue Details</Link>
           </li>
           <li className="list-group-item">
               <Link to="/admin/manage-venues" className="nav-link text-dark">Manage Venue Details</Link>
