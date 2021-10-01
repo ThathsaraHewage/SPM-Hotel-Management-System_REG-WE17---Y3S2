@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { getAllRoomTypes,getProduct,updateProduct} from "./helper/userapicall";
+import { getAllRoomTypes,getRoom,updateRoom} from "./helper/userapicall";
 import { isAutheticated } from "../auth/helper/index";
 import '../styles.css';
 
@@ -35,7 +35,7 @@ const UpdateResearchPapers = ({ match }) => {
   } = values;
 
   const preload = (productId) => {
-    getProduct(productId).then((data) => {
+    getRoom(productId).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
@@ -81,7 +81,7 @@ const UpdateResearchPapers = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    updateProduct(match.params.productId, user._id, token, formData).then(
+    updateRoom(match.params.productId, user._id, token, formData).then(
       (data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });

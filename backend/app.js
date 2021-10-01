@@ -16,6 +16,10 @@ const venueRoutes = require("./routes/venueRoutes");
 const foodRoutes = require("./routes/foodRoutes");
 //activity routes
 const activityRoutes = require("./routes/activityRoutes");
+//accomodation routes
+const accomodationRoutes = require("./routes/accomodationRoutes");
+
+
 //database connection
 const connectDB = require("./database/dbConnect");
 connectDB();
@@ -34,6 +38,8 @@ app.use("/api", venueRoutes );
 app.use("/api", foodRoutes);
 //activity routes
 app.use("/api", activityRoutes);
+app.use("/api",accomodationRoutes);
+
 //Port
 const port = process.env.PORT || 8000;
 

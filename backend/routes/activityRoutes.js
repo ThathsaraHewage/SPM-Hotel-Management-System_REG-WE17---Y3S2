@@ -9,7 +9,7 @@ const { getProductById,
     removeProduct,
     updateProduct,
     getAllActivities,
-    getAllUniqueCategories
+    AddBooking,
 } = require("../controllers/activityController");
 
 const {
@@ -47,6 +47,15 @@ router.put("/activity/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, 
 router.delete("/activity/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, removeProduct);
 //listing all activities route
 router.get("/activities",getAllActivities);
+
+//Add new booking route
+router.post(
+    "/new-booking/add/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    AddBooking
+);
 
 
 module.exports = router;

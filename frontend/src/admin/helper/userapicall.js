@@ -266,13 +266,23 @@ export const getProduct = (productId) => {
   return fetch(`${API}/room/${productId}`, {
     method: "GET",
   })
+  .then((response) => {
+    return response.json();
+  })
+  .catch((err) => console.log(err));
+};
+
+export const getRoom = productId => {
+    return fetch(`${API}/room/${productId}`, {
+      method: "GET"
+    })
     .then((response) => {
       return response.json();
     })
     .catch((err) => console.log(err));
-};
+  };
 
-export const updateProduct = (productId, userId, token, product) => {
+export const updateRoom = (productId, userId, token, product) => {
   return fetch(`${API}/room/${productId}/${userId}`, {
     method: "PUT",
     headers: {
@@ -332,3 +342,18 @@ export const PlaceBooking = (userId, token, product) => {
     .catch((err) => console.log(err));
 };
 
+//booking activities
+export const AddBooking = (userId, token, product) => {
+  return fetch(`${API}/new-booking/add/${userId}`, {
+      method: "POST",
+      headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+      },
+      body: product,
+  })
+      .then((response) => {
+          return response.json();
+      })
+      .catch((err) => console.log(err));
+};
