@@ -40,7 +40,9 @@ import ManageActivities from "./admin/ManageActivities";
 import ActivityMenu from "./admin/ActivityMenu";
 import AddNewActivity from "./admin/AddNewActivity";
 import EditActivity from "./admin/EditActivity";
-
+import ViewAllActivities from "./customer/ViewAllActivities";
+import BookActivity from "./customer/BookActivity";
+import generateReport from "./admin/generateReport";
 
 const Routes = () => {
   return (
@@ -87,6 +89,9 @@ const Routes = () => {
     <UserRoutes path="/admin/product/update/:productId" exact component={EditActivity}/>
     <UserRoutes path="/admin/manage-activities" exact component={ActivityMenu}/>
     <UserRoutes path="/admin/create/activity" exact component={AddNewActivity}/>
+    <UserRoutes path="/admin/generate-report" exact component={generateReport}/>
+    <Route path="/customer/viewactivity" exact component={ViewAllActivities}/>
+        <Route path="/customer/bookactivity" exact component={BookActivity}/>
 
       </Switch>
     </BrowserRouter>

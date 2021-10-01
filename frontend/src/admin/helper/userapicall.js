@@ -272,3 +272,18 @@ export const updateRoom = (productId, userId, token, product) => {
     })
     .catch(err => console.log(err));
 };
+//booking activities
+export const AddBooking = (userId, token, product) => {
+  return fetch(`${API}/new-booking/add/${userId}`, {
+      method: "POST",
+      headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+      },
+      body: product,
+  })
+      .then((response) => {
+          return response.json();
+      })
+      .catch((err) => console.log(err));
+};
