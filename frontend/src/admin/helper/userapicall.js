@@ -248,7 +248,7 @@ export const deleteRoomType = (productId, userId, token) => {
 
 //not modified
 
-export const getProduct = productId => {
+export const getRoom = productId => {
     return fetch(`${API}/room/${productId}`, {
       method: "GET"
     })
@@ -258,7 +258,7 @@ export const getProduct = productId => {
       .catch((err) => console.log(err));
   };
 
-export const updateProduct = (productId, userId, token, product) => {
+export const updateRoom = (productId, userId, token, product) => {
   return fetch(`${API}/room/${productId}/${userId}`, {
     method: "PUT",
     headers: {
