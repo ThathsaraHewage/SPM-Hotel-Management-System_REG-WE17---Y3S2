@@ -18,6 +18,10 @@ import AddNewFoodItem from "./admin/AddNewFoodItem";
 import ManageFoodItems from "./admin/ManageFoodItems";
 import Dinning from "./user/Dinning";
 
+import CustomerHome from "./customer/customerHome";
+import ViewFoodItems from "./customer/viewFoodItems";
+import OrderFoodItems from "./customer/orderFoodItems";
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -34,12 +38,21 @@ const Routes = () => {
           component={AddNewFoodItem}
         />
 
+        <Route path="/customer-home" exact component={CustomerHome} />
+        <Route path="/customer-dinning" exact component={ViewFoodItems} />
+
         <UserRoutes path="/admin/foodItems" exact component={ManageFoodItems} />
 
         <UserRoutes
           path="/admin/foodItem/:productId"
           exact
           component={UpdateFoodItem}
+        />
+
+        <UserRoutes
+          path="/order/food/:productId"
+          exact
+          component={OrderFoodItems}
         />
 
         <UserRoutes path="/dinning" exact component={Dinning} />

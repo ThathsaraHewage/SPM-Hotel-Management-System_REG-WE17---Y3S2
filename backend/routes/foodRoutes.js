@@ -6,6 +6,7 @@ const {
   getProductById,
   // addNewRoomType ,
   addNewFoodItem,
+  orderFoodItem,
   getFoodItem,
   photo,
   removeProduct,
@@ -22,13 +23,22 @@ const { getUserById } = require("../controllers/user");
 router.param("userId", getUserById);
 router.param("productId", getProductById);
 
-//Add new room type route
+//Add new food item route
 router.post(
   "/new-food-item/add/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
   addNewFoodItem
+);
+
+//place new food item order route
+router.post(
+  "/new-order/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  orderFoodItem
 );
 
 //read routes
