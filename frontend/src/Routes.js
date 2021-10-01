@@ -161,6 +161,12 @@ const Routes = () => {
         <UserRoutes path="/admin/events-task" exact component={Events}/>
 
         <UserRoutes path="/dinning" exact component={Dinning} />
+        <UserRoutes path="/user/profile" exact component={userProfile}/>
+
+        <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
+        <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
+        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
+        <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
       </Switch>
     </BrowserRouter>
   );
