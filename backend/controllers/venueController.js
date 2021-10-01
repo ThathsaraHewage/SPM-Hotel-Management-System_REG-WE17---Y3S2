@@ -23,6 +23,20 @@ exports.getProductById = (req, res, next, id) => {
     });
 };
 
+exports.getVenuetById = (req, res, next, id) => {
+  Document.findById(id)
+    .populate("category")
+    .exec((err, document) => {
+      if (err) {
+        return res.status(400).json({
+          error: "Document not found"
+        });
+      }
+      req.document = document;
+      next();
+    });
+};
+
 //add a new venue
 exports.addNewVenueType = (req, res) => {
   let form = new formidable.IncomingForm();

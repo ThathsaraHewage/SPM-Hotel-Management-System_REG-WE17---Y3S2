@@ -179,6 +179,17 @@ export const getFoodItem = (productId) => {
     })
     .catch((err) => console.log(err));
 };
+    
+  export const getVenue = venueId => {
+    return fetch(`${API}/room/${venueId}`, {
+      method: "GET"
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .catch((err) => console.log(err));
+  };
+
 
 export const updateProduct = (productId, userId, token, product) => {
   return fetch(`${API}/venue/${productId}/${userId}`, {
@@ -213,6 +224,19 @@ export const AddNewRoomType = (userId, token, product) => {
 /////////// Display all room types in the table view //////////////////
 export const getAllRoomTypes = () => {
   return fetch(`${API}/room-types`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+
+
+
+export const getAllVenues = () => {
+  return fetch(`${API}/venue-types/venue`, {
     method: "GET",
   })
     .then((response) => {
@@ -265,6 +289,36 @@ export const updateProduct = (productId, userId, token, product) => {
 
 export const AddNewOrder = (userId, token, product) => {
   return fetch(`${API}/new-order/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: product
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
+
+export const loadVenueDetails = (productId, userId, token, product) => {
+  return fetch(`${API}/room/${productId}/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: product
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => console.log(err));
+};
+export const PlaceBooking = (userId, token, product) => {
+  return fetch(`${API}/venue/book/${userId}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -277,3 +331,4 @@ export const AddNewOrder = (userId, token, product) => {
     })
     .catch((err) => console.log(err));
 };
+

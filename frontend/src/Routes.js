@@ -43,6 +43,11 @@ import EditActivity from "./admin/EditActivity";
 import CustomerHome from "./customer/customerHome";
 import ViewFoodItems from "./customer/viewFoodItems";
 import OrderFoodItems from "./customer/orderFoodItems";
+ 
+ import DetailedVenue from "./customer/WeddingEvents/DetailedVenue";
+ import Booking_venueDetails from './customer/WeddingEvents/booking_venueDetails';
+ import booking_venue from './customer/WeddingEvents/booking_venue';
+
 
 const Routes = () => {
   return (
@@ -144,6 +149,16 @@ const Routes = () => {
           exact
           component={OrderFoodItems}
         />
+        
+        <Route path="/customer/detailedVenue" exact component={DetailedVenue}/>
+        <Route path="/book/venue/:venueId" exact component={Booking_venueDetails}/>
+        <Route path="/customer/bookingVenue" exact component={booking_venue}/>
+         {/* events -cutomer*/}
+         {/* <Route path="/view/viewVenues" exact component={ViewVenues} /> */}
+
+
+        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
+        <UserRoutes path="/admin/events-task" exact component={Events}/>
 
         <UserRoutes path="/dinning" exact component={Dinning} />
       </Switch>

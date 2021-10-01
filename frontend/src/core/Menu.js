@@ -108,6 +108,11 @@ const Menu = ({ history }) => (
             </Link>
           </li>
 
+          <li className="nav-item text-dark">
+           
+              .................................................................................................................................................................................................................................................................................
+            
+          </li>
           <li className="nav-item">
             <span
               className="nav-link text-warning"
@@ -123,6 +128,88 @@ const Menu = ({ history }) => (
         </Fragment>
       )}
     </ul>
+
+    <ul className="nav nav-tabs bg-primary">
+
+{/*this is view for the customer*/}
+{isAutheticated() && isAutheticated().user.role === 0 && (
+            <Fragment>    
+                <li className="nav-item">
+                    <Link style={currentTab(history,"/")} className="nav-link" to="/login-home">
+                        Home
+                    </Link>
+                </li>
+            
+                <li className="nav-item">
+                    <Link style={currentTab(history,"/admin/dashboard")} className="nav-link" to="/customer/profile">
+                    Your Profile
+                    </Link>
+                </li>
+
+<li className="nav-item">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="container-fluid">
+
+<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+<ul class="navbar-nav">
+<li class="nav-item dropdown">
+<p className="text-white" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+Accomodation
+</p>
+<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+<li><Link className="nav-link text-white" to="/view/rooms/ac">A/C Rooms</Link></li>
+<li><Link className="nav-link text-white" to="/view/rooms/non-ac">Non A/C Rooms</Link></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</li>
+
+
+                <li className="nav-item">
+                <Link className="nav-link text-white" to="#">
+                    Dinning
+                </Link>
+                </li>
+
+                <li className="nav-item">
+                <Link className="nav-link text-white" to="#">
+                    Activities
+                </Link>
+                </li>
+
+                <li className="nav-item">
+                <Link className="nav-link text-white" to="/view/viewVenues">
+                    Wedding & Events
+                </Link>
+                </li>
+                
+                <li className="nav-item text-primary">
+                        .....................................................................................................................................................................................................
+                </li>
+                <li className="nav-item">
+                            <span
+                            className="nav-link text-warning"
+                            onClick={ () => {
+                                signout(() => {
+                                    history.push("/");
+                                })
+                            }}>
+                                Signout
+                            </span>
+                    </li>
+                </Fragment>
+            )}
+
+
+</ul>
+
+
+
+
+
   </div>
 );
 

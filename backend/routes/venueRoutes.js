@@ -8,7 +8,8 @@ const { getProductById,
         photo,
         removeProduct,
         updateProduct,
-        getAllVenues
+        getAllVenues,
+        getVenuetById
         
 } = require("../controllers/venueController");
 
@@ -28,6 +29,7 @@ const {
 //all of params
 router.param("userId", getUserById);
 router.param("productId", getProductById);
+router.param("venueId", getVenuetById);
 
 //Route to add new venue
 router.post(
