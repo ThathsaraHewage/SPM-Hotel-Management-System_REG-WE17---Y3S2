@@ -31,19 +31,12 @@ const Routes = () => {
         <Route path="/login-home" exact component={HomeAfterLogin} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/" exact component={Signin} />
-
         <UserRoutes path="/user/profile" exact component={userProfile}/>
 
         <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
-
         <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
-        
         <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
-
         <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
-
-        
-        {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>
   );

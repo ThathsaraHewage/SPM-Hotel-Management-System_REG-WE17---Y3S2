@@ -67,7 +67,7 @@ const Menu = ({ history }) => (
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/dinning">
+            <Link className="nav-link text-white" to="/admin/accomodation">
               Accomodation
             </Link>
           </li>
