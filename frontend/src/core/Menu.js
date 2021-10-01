@@ -50,6 +50,16 @@ const Menu = ({ history }) => (
           </li>
         </Fragment>
       )}
+      <li className="nav-item">
+        <Link className="nav-link text-white" to="/customer-home">
+          Customer Home
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link text-white" to="/customer-dinning">
+          Customer Dinning
+        </Link>
+      </li>
 
       {/*this is view for admin*/}
       {isAutheticated() && isAutheticated().user.role === 1 && (
