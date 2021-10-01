@@ -16,15 +16,17 @@ import HomeAfterLogin from "./core/Home";
 import userProfile from "./user/userProfile";
 
 //Accomodations
-import Accomodations from './user/Events';
+import Events from './user/Events';
 import AddNewVenueType from "./admin/AddNewVenueType";
-import ManageRooms from "./admin/ManageVenues";
-import UpdateRooms from "./admin/UpdateRooms";
+import ManageVenues from "./admin/ManageVenues";
+import UpdateVenues from "./admin/UpdateVenues";
 
  
  import DetailedVenue from "./customer/WeddingEvents/DetailedVenue";
  import Booking_venueDetails from './customer/WeddingEvents/booking_venueDetails';
  import booking_venue from './customer/WeddingEvents/booking_venue';
+
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -37,12 +39,11 @@ const Routes = () => {
 
         <UserRoutes path="/admin/create/venuetype" exact component={AddNewVenueType}/>
 
-        <UserRoutes path="/admin/manage-venues" exact component={ManageRooms} />
+        <UserRoutes path="/admin/manage-venues" exact component={ManageVenues} />
         
-        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
+        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateVenues}/>
 
-        <UserRoutes path="/admin/events-task" exact component={Accomodations}/>
-       
+        
         <Route path="/customer/detailedVenue" exact component={DetailedVenue}/>
         <Route path="/book/venue/:venueId" exact component={Booking_venueDetails}/>
         <Route path="/customer/bookingVenue" exact component={booking_venue}/>
@@ -51,6 +52,8 @@ const Routes = () => {
 
 
         {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
+        <UserRoutes path="/admin/events-task" exact component={Events}/>
+
       </Switch>
     </BrowserRouter>
   );

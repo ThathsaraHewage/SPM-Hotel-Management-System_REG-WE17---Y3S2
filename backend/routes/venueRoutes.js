@@ -33,7 +33,7 @@ router.param("venueId", getVenuetById);
 
 //Route to add new venue
 router.post(
-  "/new-room-type/add/:userId",
+  "/new-venue-type/add/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
@@ -41,14 +41,14 @@ router.post(
 );
 
 //read routes
-router.get("/room/:productId", getProduct);
+router.get("/venue/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
 //route to update venue
-router.put("/room/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, updateProduct);
+router.put("/venue/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, updateProduct);
 //route to delete venue
-router.delete("/room/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, removeProduct);
+router.delete("/venue/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, removeProduct);
 //route to list all venues
-router.get("/room-types",getAllVenues);
+router.get("/venue-types",getAllVenues);
 
 
 module.exports = router;
