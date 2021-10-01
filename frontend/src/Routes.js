@@ -21,9 +21,10 @@ import AddNewVenueType from "./admin/AddNewVenueType";
 import ManageRooms from "./admin/ManageVenues";
 import UpdateRooms from "./admin/UpdateRooms";
 
-// import ApprovedReseachPaper from "./admin/ApprovedResearchPapers";
-;
-
+ 
+ import DetailedVenue from "./customer/WeddingEvents/DetailedVenue";
+ import Booking_venueDetails from './customer/WeddingEvents/booking_venueDetails';
+ import booking_venue from './customer/WeddingEvents/booking_venue';
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -41,8 +42,14 @@ const Routes = () => {
         <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
 
         <UserRoutes path="/admin/events-task" exact component={Accomodations}/>
+       
+        <Route path="/customer/detailedVenue" exact component={DetailedVenue}/>
+        <Route path="/book/venue/:venueId" exact component={Booking_venueDetails}/>
+        <Route path="/customer/bookingVenue" exact component={booking_venue}/>
+         {/* events -cutomer*/}
+         {/* <Route path="/view/viewVenues" exact component={ViewVenues} /> */}
 
-        
+
         {/* <UserRoutes path="/available-rooms" exact component={ApprovedReseachPaper} /> */}
       </Switch>
     </BrowserRouter>

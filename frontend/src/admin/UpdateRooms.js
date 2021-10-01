@@ -150,7 +150,7 @@ const UpdateVenues = ({ match }) => {
       </div><br/>
     
       <div className="form-group mt-2">
-      <label htmlFor="venueType">Venue Name</label>
+      <label htmlFor="venueType">Venue Type</label>
         <select
           onChange={handleChange("venueType")}
           type="text"
