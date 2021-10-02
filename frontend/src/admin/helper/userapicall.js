@@ -105,7 +105,7 @@ export const deleteActivities = (productId, userId, token) => {
     .catch((err) => console.log(err));
 };
 
-export const getProduct = (productId) => {
+export const getVenueProduct = (productId) => {
   return fetch(`${API}/venue/${productId}`, {
     method: "GET",
   })
@@ -180,7 +180,7 @@ export const getFoodItem = (productId) => {
 };
 
 export const getVenue = (venueId) => {
-  return fetch(`${API}/room/${venueId}`, {
+  return fetch(`${API}/venue/${venueId}`, {
     method: "GET",
   })
     .then((response) => {
@@ -189,7 +189,7 @@ export const getVenue = (venueId) => {
     .catch((err) => console.log(err));
 };
 
-export const updateProduct = (productId, userId, token, product) => {
+export const updateVenueProduct = (productId, userId, token, product) => {
   return fetch(`${API}/venue/${productId}/${userId}`, {
     method: "PUT",
     headers: {
@@ -309,6 +309,29 @@ export const loadVenueDetails = (productId, userId, token, product) => {
     })
     .catch((err) => console.log(err));
 };
+
+///////////////////////display all AC rooms in a seperate page ////////////////////
+export const getAllACRooms = () => {
+  return fetch(`${API}/room-types/ac`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+///////////////////////display all non AC rooms in a seperate page ////////////////////
+export const getAllnonACRooms = () => {
+  return fetch(`${API}/room-types/non-ac`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 export const PlaceBooking = (userId, token, product) => {
   return fetch(`${API}/venue/book/${userId}`, {
     method: "POST",

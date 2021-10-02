@@ -110,7 +110,7 @@ const ManageActivities = () => {
                       <td>
                         <Link
                           className="btn btn-warning"
-                          to={`/admin/product/update/${Activities._id}`}
+                          to={`/admin/activity/update/${Activities._id}`}
                         >
                           <span className="">Update</span>
                         </Link>

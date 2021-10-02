@@ -5,10 +5,10 @@ const router = express.Router();
 const {
   getProductById,
   addNewActivity,
-  getProduct,
+  getActivityProduct,
   photo,
   removeProduct,
-  updateProduct,
+  updateActivityProduct,
   getAllActivities,
   AddBooking,
 } = require("../controllers/activityController");
@@ -32,7 +32,7 @@ router.post(
 );
 
 //read routes
-router.get("/activity/:productId", getProduct);
+router.get("/activity/:productId", getActivityProduct);
 router.get("/product/activities-photo/:productId", photo);
 //update route
 router.put(
@@ -40,7 +40,7 @@ router.put(
   isSignedIn,
   isAuthenticated,
   isAdmin,
-  updateProduct
+  updateActivityProduct
 );
 //delete routes
 router.delete(

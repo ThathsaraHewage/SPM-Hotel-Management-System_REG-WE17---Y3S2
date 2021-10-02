@@ -50,6 +50,8 @@ import booking_venue from "./customer/WeddingEvents/booking_venue";
 
 import ViewAllActivities from "./customer/ViewAllActivities";
 import BookActivity from "./customer/BookActivity";
+import ViewACRooms from "./customer/viewACRooms";
+import ViewNonACRooms from "./customer/viewNonACRooms";
 
 const Routes = () => {
   return (
@@ -57,22 +59,25 @@ const Routes = () => {
       <Switch>
         <Route path="/login-home" exact component={HomeAfterLogin} />
         <Route path="/signup" exact component={Signup} />
-        <Route path="/" exact component={Signin} />
+        <Route path="/signin" exact component={Signin} />
         <UserRoutes path="/user/profile" exact component={userProfile} />
         <UserRoutes
           path="/admin/foodItem/new"
           exact
           component={AddNewFoodItem}
         />
-        <Route path="/customer-home" exact component={CustomerHome} />
+
+        <Route path="/" exact component={CustomerHome} />
+
         <Route path="/customer-dinning" exact component={ViewFoodItems} />
+
         <UserRoutes path="/admin/foodItems" exact component={ManageFoodItems} />
         <UserRoutes
           path="/admin/foodItem/:productId"
           exact
           component={UpdateFoodItem}
         />
-        <UserRoutes path="/customer/venue" exact component={DetailedVenue} />
+        <Route path="/customer/venue" exact component={DetailedVenue} />
         <UserRoutes
           path="/admin/create/venuetype"
           exact
@@ -89,6 +94,10 @@ const Routes = () => {
           component={UpdateVenues}
         />
         <UserRoutes path="/admin/events-task" exact component={Events} />
+
+        <Route path="/view/rooms/ac" exact component={ViewACRooms} />
+        <Route path="/view/rooms/non-ac" exact component={ViewNonACRooms} />
+
         <UserRoutes
           path="/admin/create/roomtype"
           exact
@@ -118,11 +127,12 @@ const Routes = () => {
         />
         <UserRoutes path="/dinning" exact component={Dinning} />
 
-        <UserRoutes
+        <Route
           path="/customer/activities"
           exact
           component={ViewAllActivities}
         />
+
         <UserRoutes
           path="/admin/get-activities"
           exact
@@ -171,7 +181,7 @@ const Routes = () => {
         />
         <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
         <UserRoutes
-          path="/admin/product/update/:productId"
+          path="/admin/room/update/:productId"
           exact
           component={UpdateRooms}
         />
@@ -198,7 +208,7 @@ const Routes = () => {
           component={ManageActivities}
         />
         <UserRoutes
-          path="/admin/product/update/:productId"
+          path="/admin/activity/update/:productId"
           exact
           component={EditActivity}
         />

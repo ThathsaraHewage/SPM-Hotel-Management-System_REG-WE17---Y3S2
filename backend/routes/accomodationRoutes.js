@@ -10,6 +10,8 @@ const {
   removeProduct,
   updateProduct,
   getAllRooms,
+  getACRooms,
+  getnonACRooms,
   getAllUniqueCategories,
 } = require("../controllers/accomodationController");
 
@@ -54,5 +56,10 @@ router.delete(
 );
 //listing all research papers route
 router.get("/room-types", getAllRooms);
+
+//listing all ac rooms to customer
+router.get("/room-types/ac", getACRooms);
+//listing all non ac rooms to customer
+router.get("/room-types/non-ac", getnonACRooms);
 
 module.exports = router;

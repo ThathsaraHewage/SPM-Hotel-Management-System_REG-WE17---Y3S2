@@ -3,6 +3,10 @@ import "../styles.css";
 import { Link } from "react-router-dom";
 import Base from "../core/Base";
 import Image from "../core/images/Kingsbury.jpg";
+import image1 from "../core/images/A.jpg";
+import image22 from "../core/images/F.jpg";
+import logo from "../core/images/loggo.png";
+import image4 from "../core/images/D.jpg";
 
 export default function CustomerHome() {
   return (
@@ -11,10 +15,45 @@ export default function CustomerHome() {
       title="Atrium Leisure"
       description="Welcome to Atrium leisure"
     >
-      <div className="row text-center">
-        <div className="row"></div>
-        <img src={Image} alt="home" width="400px" height="800px" />
+      <div
+        id="carouselExampleInterval"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img src={image22} class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src={image1} class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src={Image} class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src={image4} class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+
       <div className="card mt-5 mb-5">
         <div className="card card-header text-center text-light bg-primary">
           <h2 style={{ fontFamily: "initial" }}>About Atrium</h2>
@@ -47,7 +86,7 @@ export default function CustomerHome() {
                   width: "75%",
                   alignSelf: "center",
                 }}
-                to={`/customer-dinning`}
+                to={`/view/rooms/ac`}
               >
                 Go to Accomodation
               </Link>
@@ -121,6 +160,12 @@ export default function CustomerHome() {
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <center>
+        <img src={logo} style={{ width: "300px" }} />
+      </center>
+      <br />
       <center>
         <p style={{ color: "gray", fontSize: "14px", marginTop: 30 }}>
           Atrium Leisure, all rights reserved.

@@ -106,7 +106,7 @@ const ManageRooms = () => {
                       <td>
                         <Link
                           className="btn btn-warning"
-                          to={`/admin/product/update/${RoomTypes._id}`}
+                          to={`/admin/room/update/${RoomTypes._id}`}
                         >
                           <span className="">Update</span>
                         </Link>
