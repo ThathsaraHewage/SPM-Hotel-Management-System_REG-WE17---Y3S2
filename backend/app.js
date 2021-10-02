@@ -14,10 +14,12 @@ const userRoutes = require("./routes/user");
 const venueRoutes = require("./routes/venueRoutes");
 //Food routes
 const foodRoutes = require("./routes/foodRoutes");
+const foodBookingRoutes = require("./routes/foodBooking");
 //activity routes
 const activityRoutes = require("./routes/activityRoutes");
 //accomodation routes
 const accomodationRoutes = require("./routes/accomodationRoutes");
+const accomodationBookingRoutes = require("./routes/Accomodationbooking");
 
 //database connection
 const connectDB = require("./database/dbConnect");
@@ -34,9 +36,11 @@ app.use("/api", userRoutes);
 app.use("/api", venueRoutes);
 //food item routes
 app.use("/api", foodRoutes);
+app.use("/api", foodBookingRoutes);
 //activity routes
 app.use("/api", activityRoutes);
 app.use("/api", accomodationRoutes);
+app.use("/api", accomodationBookingRoutes);
 
 //Port
 const port = process.env.PORT || 8000;

@@ -52,6 +52,8 @@ import ViewAllActivities from "./customer/ViewAllActivities";
 import BookActivity from "./customer/BookActivity";
 import ViewACRooms from "./customer/viewACRooms";
 import ViewNonACRooms from "./customer/viewNonACRooms";
+import BookingroomDetails from "./customer/booking_roomDetails";
+import Booking_last from "./customer/booking_last";
 
 const Routes = () => {
   return (
@@ -68,6 +70,7 @@ const Routes = () => {
         />
 
         <Route path="/" exact component={CustomerHome} />
+        <Route path="/customer-home" exact component={CustomerHome} />
 
         <Route path="/customer-dinning" exact component={ViewFoodItems} />
 
@@ -97,6 +100,9 @@ const Routes = () => {
 
         <Route path="/view/rooms/ac" exact component={ViewACRooms} />
         <Route path="/view/rooms/non-ac" exact component={ViewNonACRooms} />
+
+        <Route path="/book/room/:roomId" exact component={BookingroomDetails} />
+        <Route path="/book/complete" exact component={Booking_last} />
 
         <UserRoutes
           path="/admin/create/roomtype"
@@ -153,11 +159,7 @@ const Routes = () => {
           exact
           component={AddNewActivity}
         />
-        <UserRoutes
-          path="/order/food/:productId"
-          exact
-          component={OrderFoodItems}
-        />
+        <Route path="/order/food/:productId" exact component={OrderFoodItems} />
         <Route path="/customer/detailedVenue" exact component={DetailedVenue} />
         <Route
           path="/book/venue/:venueId"

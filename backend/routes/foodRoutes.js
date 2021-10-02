@@ -5,15 +5,12 @@ const router = express.Router();
 const {
   getProductById,
   addNewFoodItem,
-  orderFoodItem,
   getFoodItem,
   dinningPhoto,
   removeProduct,
   updateFoodItem,
   getAllFoodItems,
 } = require("../controllers/foodController");
-
-// const { photo } = require("../controllers/imageController");
 
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 
@@ -31,15 +28,6 @@ router.post(
   isAuthenticated,
   isAdmin,
   addNewFoodItem
-);
-
-//place new food item order route
-router.post(
-  "/new-order/:userId",
-  isSignedIn,
-  isAuthenticated,
-  isAdmin,
-  orderFoodItem
 );
 
 //read routes

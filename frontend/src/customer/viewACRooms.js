@@ -135,18 +135,6 @@ const ViewACRooms = () => {
                         <b>Status:</b> {RoomTypes.status}
                       </p>
                     </div>
-                    {/* <button
-                    style={{
-                      width: "60%",
-                      alignSelf: "center",
-                      margin: "10px",
-                      padding: "5px",
-                      color: "white",
-                    }}
-                    className="btn btn-primary"
-                  >
-                    Book Now
-                  </button> */}
 
                     <Link to={`/book/room/${RoomTypes._id}`}>
                       <div class="d-grid gap-2 col-6 mx-auto">

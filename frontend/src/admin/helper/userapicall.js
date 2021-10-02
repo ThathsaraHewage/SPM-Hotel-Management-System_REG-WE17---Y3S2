@@ -280,12 +280,11 @@ export const updateRoom = (productId, userId, token, product) => {
     .catch((err) => console.log(err));
 };
 
-export const AddNewOrder = (userId, token, product) => {
-  return fetch(`${API}/new-order/${userId}`, {
+export const AddNewFoodOrder = (product) => {
+  return fetch(`${API}/new-food-order`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`,
     },
     body: product,
   })
@@ -338,6 +337,20 @@ export const PlaceBooking = (userId, token, product) => {
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
+    },
+    body: product,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const AddAccomodationBooking = (product) => {
+  return fetch(`${API}/room/book`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
     },
     body: product,
   })

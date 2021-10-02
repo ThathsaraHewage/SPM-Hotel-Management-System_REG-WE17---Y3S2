@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { AddNewFoodOrder, getFoodItem } from "../admin/helper/userapicall";
+import { AddAccomodationBooking } from "../admin/helper/userapicall";
 
-const OrderFoodItems = ({ match }) => {
-  const [Values, setValue] = useState({
-    name: "",
-    description: "",
-    price: "",
-    category: "",
-    discount: 0,
+const Booking_last = ({ match }) => {
+  const [values, setValues] = useState({
+    firstname: "",
+    lastname: "",
+    address: "",
+    city: "",
+    days: "",
+    checkindate: "",
+    norooms: "",
+    holdersname: "",
+    cardnumber: "",
+    cvv: "",
+    expdate: "",
     photo: "",
     loading: false,
     error: "",
@@ -17,85 +23,24 @@ const OrderFoodItems = ({ match }) => {
     getaRedirect: false,
     formData: "",
   });
-  const {
-    name,
-    description,
-    category,
-    price,
-    discount,
-    // loading,
-    error,
-    createdProduct,
-    // getaRedirect,
-    formData,
-  } = Values;
-
-  const preloading = (productId) => {
-    getFoodItem(productId).then((data) => {
-      if (data.error) {
-        setValue({ ...Values, error: data.error });
-      } else {
-        setValue({
-          ...Values,
-          name: data.name,
-          description: data.description,
-          category: data.category,
-          discount: data.discount,
-          price: data.price,
-          formData: new FormData(),
-        });
-      }
-    });
-  };
-
-  useEffect(() => {
-    preloading(match.params.productId);
-  }, []);
-
-  const [values, setValues] = useState({
-    name: "",
-    description: "",
-    category: "",
-    discount: "",
-    price: "",
-
-    firstname: "",
-    lastname: "",
-    address: "",
-    city: "",
-
-    holdersname: "",
-    cardnumber: "",
-    cvv: "",
-    expdate: "",
-
-    loading: false,
-    error: "",
-    createdProduct: "",
-    getaRedirect: false,
-    formData: "",
-  });
 
   const {
-    // name,
-    // description,
-    // category,
-    // discount,
-    // price,
-
     firstname,
     lastname,
     address,
     city,
+    days,
+    checkindate,
+    norooms,
     holdersname,
     cardnumber,
     cvv,
     expdate,
     loading,
-    // error,
-    // createdProduct,
+    error,
+    createdProduct,
     getaRedirect,
-    // formData,
+    formData,
   } = values;
 
   const preload = () => {
@@ -115,7 +60,7 @@ const OrderFoodItems = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    AddNewFoodOrder(formData)
+    AddAccomodationBooking(formData)
       .then((data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
@@ -126,17 +71,16 @@ const OrderFoodItems = ({ match }) => {
             lastname: "",
             address: "",
             city: "",
+            days: "",
+            checkindate: "",
+            norooms: "",
             holdersname: "",
             cardnumber: "",
             cvv: "",
             expdate: "",
-            name: "",
-            description: "",
-            category: "",
-            discount: 0,
-            price: "",
+            photo: "",
             loading: false,
-            createdProduct: data.name,
+            createdProduct: data.title,
             getaRedirect: true,
           });
         }
@@ -168,27 +112,9 @@ const OrderFoodItems = ({ match }) => {
 
   const bookingForm = () => (
     <form>
+      {" "}
       <br />
       <br />
-      <div class="card-body p-4">
-        <h5 class="card-title">
-          <b>Name: </b>
-          {name}
-        </h5>
-        <b>LKR: </b>
-        {price}
-        <p className="card-text mb-0">
-          <b>Category: </b>
-          {category}
-        </p>
-        <p className="card-text mb-0">
-          <b>Description: </b>
-          {description}
-        </p>
-        <Link to="/customer-dinning" class="btn btn-danger rounded">
-          Cancel
-        </Link>
-      </div>
       <center>
         <h4>Your Details</h4>
       </center>
@@ -241,8 +167,46 @@ const OrderFoodItems = ({ match }) => {
             value={city}
           />
         </div>
-      </div>
 
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">
+            Number of days
+          </label>
+          <input
+            type="number"
+            onChange={handleChange("days")}
+            className="form-control"
+            placeholder=""
+            value={days}
+          />
+        </div>
+
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">
+            Check-In Date
+          </label>
+          <input
+            type="date"
+            onChange={handleChange("checkindate")}
+            className="form-control"
+            placeholder=""
+            value={checkindate}
+          />
+        </div>
+
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">
+            Number of Rooms
+          </label>
+          <input
+            type="number"
+            onChange={handleChange("norooms")}
+            className="form-control"
+            placeholder=""
+            value={norooms}
+          />
+        </div>
+      </div>
       <br />
       <br />
       <br />
@@ -315,7 +279,7 @@ const OrderFoodItems = ({ match }) => {
           onClick={onSubmit}
           className="btn btn-outline-primary mb-3 rounded-pill"
         >
-          Complete Your Order
+          Complete Your Booking
         </button>
       </div>
     </form>
@@ -324,8 +288,8 @@ const OrderFoodItems = ({ match }) => {
   return (
     <Base
       navigation=""
-      title="Order a Food Item"
-      description=" You can Order food Item of your selected category"
+      title="Book a Room"
+      description=" You can book a room of your selected category"
     >
       <div className="container bg-primary p-4">
         <div className="row bg-dark text-white rounded">
@@ -351,4 +315,4 @@ const OrderFoodItems = ({ match }) => {
   );
 };
 
-export default OrderFoodItems;
+export default Booking_last;
