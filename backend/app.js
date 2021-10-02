@@ -19,11 +19,9 @@ const activityRoutes = require("./routes/activityRoutes");
 //accomodation routes
 const accomodationRoutes = require("./routes/accomodationRoutes");
 
-
 //database connection
 const connectDB = require("./database/dbConnect");
 connectDB();
-
 
 //Middelware
 app.use(bodyParser.json());
@@ -33,15 +31,15 @@ app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 //Routes relates to venues
-app.use("/api", venueRoutes );
+app.use("/api", venueRoutes);
 //food item routes
 app.use("/api", foodRoutes);
 //activity routes
 app.use("/api", activityRoutes);
-app.use("/api",accomodationRoutes);
+app.use("/api", accomodationRoutes);
 
 //Port
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 //starting a server
 app.listen(port, () => {

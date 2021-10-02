@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { getAllFoodItems } from "../admin/helper/userapicall";
-import ImageHelper from "../core/helper/ImageHelper";
+import { DinningImageHelper } from "../core/helper/ImageHelper";
 
 const ViewFoodItems = () => {
   const [FoodItem, setFoodItem] = useState([]);
@@ -59,7 +59,7 @@ const ViewFoodItems = () => {
                         margin: 30,
                       }}
                     >
-                      <ImageHelper
+                      <DinningImageHelper
                         product={FoodItem}
                         className="card-img-top"
                         alt="Food Items"

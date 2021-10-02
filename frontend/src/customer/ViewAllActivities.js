@@ -3,31 +3,30 @@ import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { getAllActivities } from "../admin/helper/userapicall";
 import { isAutheticated } from "../auth/helper";
-import ImageHelper from "../core/helper/ImageHelper";
+import { ActivitiesImageHelper } from "../core/helper/ImageHelper";
 
 const ViewAllActivities = () => {
-    const [Activities, setActivities] = useState([]);
+  const [Activities, setActivities] = useState([]);
 
-    const { user, token } = isAutheticated();
-  
-  
-    const preload = () => {
-      getAllActivities().then((data) => {
-        if (data.error) {
-          console.log(data.error);
-        } else {
-          setActivities(data);
-        }
-      });
-    };
+  const { user, token } = isAutheticated();
 
-    useEffect(() => {
-        preload();
-      }, []);
+  const preload = () => {
+    getAllActivities().then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setActivities(data);
+      }
+    });
+  };
 
-      return (
-            <Base navigation="" title="Customer" description="View All Activities">
-           <div className="container p-4" id="themeColor">
+  useEffect(() => {
+    preload();
+  }, []);
+
+  return (
+    <Base navigation="" title="Customer" description="View All Activities">
+      <div className="container p-4" id="themeColor">
         <Link className="btn btn=md btn-dark mb-3" to={`/dinning`}>
           <span className="">Go Back</span>
         </Link>
@@ -46,7 +45,7 @@ const ViewAllActivities = () => {
                       }}
                       id="themeColor"
                     >
-                      <ImageHelper
+                      <ActivitiesImageHelper
                         product={Activities}
                         className="card-img-top"
                         alt="activity"
@@ -70,7 +69,8 @@ const ViewAllActivities = () => {
                         <b>Price:</b> {Activities.price}
                       </p>
                     </div>
-                    <Link to="/customer/bookactivity"
+                    <Link
+                      to="/customer/bookactivity"
                       style={{
                         width: "60%",
                         alignSelf: "center",
@@ -89,16 +89,14 @@ const ViewAllActivities = () => {
           })}
         </div>
         <br />
-        <div className="bg-dark text-white rounded">
-        </div>
+        <div className="bg-dark text-white rounded"></div>
       </div>
       <center>
         <p style={{ color: "gray", fontSize: "14px" }}>
           Atrium Leisure, all rights reserved.
         </p>
       </center>
-            </Base>
-          
-      );
+    </Base>
+  );
 };
 export default ViewAllActivities;

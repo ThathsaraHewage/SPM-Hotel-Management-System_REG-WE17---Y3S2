@@ -3,7 +3,7 @@ import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { isAutheticated } from "../auth/helper";
 import { deleteFoodItem, getAllFoodItems } from "./helper/userapicall";
-import ImageHelper from "../core/helper/ImageHelper";
+import { DinningImageHelper } from "../core/helper/ImageHelper";
 
 const ManageFoodItems = () => {
   const [FoodItem, setFoodItem] = useState([]);
@@ -16,7 +16,6 @@ const ManageFoodItems = () => {
         console.log(data.error);
       } else {
         setFoodItem(data);
-        console.log(data);
       }
     });
   };
@@ -94,7 +93,10 @@ const ManageFoodItems = () => {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>
-                        <ImageHelper className="mr-3" product={FoodItem} />
+                        <DinningImageHelper
+                          className="mr-3"
+                          product={FoodItem}
+                        />
                       </td>
                       <td>{FoodItem.name}</td>
                       <td>{FoodItem.description}</td>

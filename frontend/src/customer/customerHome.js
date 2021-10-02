@@ -70,7 +70,7 @@ export default function CustomerHome() {
                 width: "75%",
                 alignSelf: "center",
               }}
-              to={`/customer-dinning`}
+              to={`/customer/venue`}
             >
               Go to Wedding and Events
             </Link>
@@ -114,7 +114,7 @@ export default function CustomerHome() {
                 width: "75%",
                 alignSelf: "center",
               }}
-              to={`/customer-dinning`}
+              to={`/customer/activities`}
             >
               Go to Activities
             </Link>

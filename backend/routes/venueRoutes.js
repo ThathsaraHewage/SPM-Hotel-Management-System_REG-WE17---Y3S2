@@ -2,28 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 //importing
-const { getProductById,
-        addNewVenueType ,
-        getProduct,
-        photo,
-        removeProduct,
-        updateProduct,
-        getAllVenues,
-        getVenuetById
-        
+const {
+  getProductById,
+  addNewVenueType,
+  getProduct,
+  venuePhoto,
+  removeProduct,
+  updateProduct,
+  getAllVenues,
+  getVenuetById,
 } = require("../controllers/venueController");
 
-const { 
-  isSignedIn, 
-  isAuthenticated, 
-  isAdmin 
-} = require("../controllers/auth");
+// const { photo } = require("../controllers/imageController");
 
-const { 
-  getUserById 
-} = require("../controllers/user");
+const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 
-
+const { getUserById } = require("../controllers/user");
 
 //api
 //all of params
@@ -37,18 +31,29 @@ router.post(
   isSignedIn,
   isAuthenticated,
   isAdmin,
-  addNewVenueType 
+  addNewVenueType
 );
 
 //read routes
 router.get("/venue/:productId", getProduct);
-router.get("/product/photo/:productId", photo);
+router.get("/product/photo/:productId", venuePhoto);
 //route to update venue
-router.put("/venue/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, updateProduct);
+router.put(
+  "/venue/:productId/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  updateProduct
+);
 //route to delete venue
-router.delete("/venue/:productId/:userId",isSignedIn, isAuthenticated, isAdmin, removeProduct);
+router.delete(
+  "/venue/:productId/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  removeProduct
+);
 //route to list all venues
-router.get("/venue-types",getAllVenues);
-
+router.get("/venue-types", getAllVenues);
 
 module.exports = router;

@@ -43,14 +43,13 @@ import EditActivity from "./admin/EditActivity";
 import CustomerHome from "./customer/customerHome";
 import ViewFoodItems from "./customer/viewFoodItems";
 import OrderFoodItems from "./customer/orderFoodItems";
- 
- import DetailedVenue from "./customer/WeddingEvents/DetailedVenue";
- import Booking_venueDetails from './customer/WeddingEvents/booking_venueDetails';
- import booking_venue from './customer/WeddingEvents/booking_venue';
+
+import DetailedVenue from "./customer/WeddingEvents/DetailedVenue";
+import Booking_venueDetails from "./customer/WeddingEvents/booking_venueDetails";
+import booking_venue from "./customer/WeddingEvents/booking_venue";
 
 import ViewAllActivities from "./customer/ViewAllActivities";
 import BookActivity from "./customer/BookActivity";
-
 
 const Routes = () => {
   return (
@@ -59,26 +58,21 @@ const Routes = () => {
         <Route path="/login-home" exact component={HomeAfterLogin} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/" exact component={Signin} />
-
         <UserRoutes path="/user/profile" exact component={userProfile} />
-
         <UserRoutes
           path="/admin/foodItem/new"
           exact
           component={AddNewFoodItem}
         />
-
         <Route path="/customer-home" exact component={CustomerHome} />
         <Route path="/customer-dinning" exact component={ViewFoodItems} />
-
         <UserRoutes path="/admin/foodItems" exact component={ManageFoodItems} />
-
         <UserRoutes
           path="/admin/foodItem/:productId"
           exact
           component={UpdateFoodItem}
         />
-
+        <UserRoutes path="/customer/venue" exact component={DetailedVenue} />
         <UserRoutes
           path="/admin/create/venuetype"
           exact
@@ -95,7 +89,6 @@ const Routes = () => {
           component={UpdateVenues}
         />
         <UserRoutes path="/admin/events-task" exact component={Events} />
-
         <UserRoutes
           path="/admin/create/roomtype"
           exact
@@ -112,7 +105,6 @@ const Routes = () => {
           exact
           component={Accomodations}
         />
-
         <UserRoutes
           path="/admin/foodItem/new"
           exact
@@ -126,6 +118,11 @@ const Routes = () => {
         />
         <UserRoutes path="/dinning" exact component={Dinning} />
 
+        <UserRoutes
+          path="/customer/activities"
+          exact
+          component={ViewAllActivities}
+        />
         <UserRoutes
           path="/admin/get-activities"
           exact
@@ -146,45 +143,91 @@ const Routes = () => {
           exact
           component={AddNewActivity}
         />
-
         <UserRoutes
           path="/order/food/:productId"
           exact
           component={OrderFoodItems}
         />
-        
-        <Route path="/customer/detailedVenue" exact component={DetailedVenue}/>
-        <Route path="/book/venue/:venueId" exact component={Booking_venueDetails}/>
-        <Route path="/customer/bookingVenue" exact component={booking_venue}/>
-        <Route path="/customer/viewactivity" exact component={ViewAllActivities}/>
-        <Route path="/customer/bookactivity" exact component={BookActivity}/>
-
-        <UserRoutes path="/admin/events-task" exact component={Events}/>
-
+        <Route path="/customer/detailedVenue" exact component={DetailedVenue} />
+        <Route
+          path="/book/venue/:venueId"
+          exact
+          component={Booking_venueDetails}
+        />
+        <Route path="/customer/bookingVenue" exact component={booking_venue} />
+        <Route
+          path="/customer/viewactivity"
+          exact
+          component={ViewAllActivities}
+        />
+        <Route path="/customer/bookactivity" exact component={BookActivity} />
+        <UserRoutes path="/admin/events-task" exact component={Events} />
         <UserRoutes path="/dinning" exact component={Dinning} />
-        <UserRoutes path="/user/profile" exact component={userProfile}/>
-    <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
-    <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
-    <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
-    <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
-
-    <UserRoutes path="/admin/foodItem/new" exact component={AddNewFoodItem}/>
-    <UserRoutes path="/admin/foodItems" exact component={ManageFoodItems} />
-    <UserRoutes path="/admin/foodItem/:productId" exact component={UpdateFoodItem}/>
-    <UserRoutes path="/dinning" exact component={Dinning} />
-   
-    <UserRoutes path="/admin/get-activities" exact component={ManageActivities} />
-    <UserRoutes path="/admin/product/update/:productId" exact component={EditActivity}/>
-    <UserRoutes path="/admin/manage-activities" exact component={ActivityMenu}/>
-    <UserRoutes path="/admin/create/activity" exact component={AddNewActivity}/>
-  
-    
-
-        <UserRoutes path="/admin/create/roomtype" exact component={AddNewRoomType}/>
+        <UserRoutes path="/user/profile" exact component={userProfile} />
+        <UserRoutes
+          path="/admin/create/roomtype"
+          exact
+          component={AddNewRoomType}
+        />
         <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
-        <UserRoutes path="/admin/product/update/:productId" exact component={UpdateRooms}/>
-        <UserRoutes path="/admin/accomodation" exact component={Accomodations}/>
-
+        <UserRoutes
+          path="/admin/product/update/:productId"
+          exact
+          component={UpdateRooms}
+        />
+        <UserRoutes
+          path="/admin/accomodation"
+          exact
+          component={Accomodations}
+        />
+        <UserRoutes
+          path="/admin/foodItem/new"
+          exact
+          component={AddNewFoodItem}
+        />
+        <UserRoutes path="/admin/foodItems" exact component={ManageFoodItems} />
+        <UserRoutes
+          path="/admin/foodItem/:productId"
+          exact
+          component={UpdateFoodItem}
+        />
+        <UserRoutes path="/dinning" exact component={Dinning} />
+        <UserRoutes
+          path="/admin/get-activities"
+          exact
+          component={ManageActivities}
+        />
+        <UserRoutes
+          path="/admin/product/update/:productId"
+          exact
+          component={EditActivity}
+        />
+        <UserRoutes
+          path="/admin/manage-activities"
+          exact
+          component={ActivityMenu}
+        />
+        <UserRoutes
+          path="/admin/create/activity"
+          exact
+          component={AddNewActivity}
+        />
+        <UserRoutes
+          path="/admin/create/roomtype"
+          exact
+          component={AddNewRoomType}
+        />
+        <UserRoutes path="/admin/manage-rooms" exact component={ManageRooms} />
+        <UserRoutes
+          path="/admin/product/update/:productId"
+          exact
+          component={UpdateRooms}
+        />
+        <UserRoutes
+          path="/admin/accomodation"
+          exact
+          component={Accomodations}
+        />
       </Switch>
     </BrowserRouter>
   );

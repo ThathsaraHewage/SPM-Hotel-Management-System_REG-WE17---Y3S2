@@ -4,15 +4,16 @@ const router = express.Router();
 //importing////////////////////////////////////////////////////////////
 const {
   getProductById,
-  // addNewRoomType ,
   addNewFoodItem,
   orderFoodItem,
   getFoodItem,
-  photo,
+  dinningPhoto,
   removeProduct,
   updateFoodItem,
   getAllFoodItems,
 } = require("../controllers/foodController");
+
+// const { photo } = require("../controllers/imageController");
 
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 
@@ -43,7 +44,7 @@ router.post(
 
 //read routes
 router.get("/food/:productId", getFoodItem);
-router.get("/product/photo/:productId", photo);
+router.get("/product/dinning-photo/:productId", dinningPhoto);
 //update route
 router.put(
   "/food/:productId/:userId",

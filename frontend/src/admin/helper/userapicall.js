@@ -178,17 +178,16 @@ export const getFoodItem = (productId) => {
     })
     .catch((err) => console.log(err));
 };
-    
-  export const getVenue = venueId => {
-    return fetch(`${API}/room/${venueId}`, {
-      method: "GET"
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .catch((err) => console.log(err));
-  };
 
+export const getVenue = (venueId) => {
+  return fetch(`${API}/room/${venueId}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
 
 export const updateProduct = (productId, userId, token, product) => {
   return fetch(`${API}/venue/${productId}/${userId}`, {
@@ -231,9 +230,6 @@ export const getAllRoomTypes = () => {
     .catch((err) => console.log(err));
 };
 
-
-
-
 export const getAllVenues = () => {
   return fetch(`${API}/venue-types/venue`, {
     method: "GET",
@@ -259,16 +255,15 @@ export const deleteRoomType = (productId, userId, token) => {
     .catch((err) => console.log(err));
 };
 
-
-export const getRoom = productId => {
-    return fetch(`${API}/room/${productId}`, {
-      method: "GET"
-    })
+export const getRoom = (productId) => {
+  return fetch(`${API}/room/${productId}`, {
+    method: "GET",
+  })
     .then((response) => {
       return response.json();
     })
     .catch((err) => console.log(err));
-  };
+};
 
 export const updateRoom = (productId, userId, token, product) => {
   return fetch(`${API}/room/${productId}/${userId}`, {
@@ -287,33 +282,32 @@ export const updateRoom = (productId, userId, token, product) => {
 
 export const AddNewOrder = (userId, token, product) => {
   return fetch(`${API}/new-order/${userId}`, {
-    method: "GET",
+    method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
-    body: product
+    body: product,
   })
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
-
 
 export const loadVenueDetails = (productId, userId, token, product) => {
   return fetch(`${API}/room/${productId}/${userId}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     },
-    body: product
+    body: product,
   })
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 export const PlaceBooking = (userId, token, product) => {
   return fetch(`${API}/venue/book/${userId}`, {
@@ -333,15 +327,15 @@ export const PlaceBooking = (userId, token, product) => {
 //booking activities
 export const AddBooking = (userId, token, product) => {
   return fetch(`${API}/new-booking/add/${userId}`, {
-      method: "POST",
-      headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-      },
-      body: product,
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: product,
   })
-      .then((response) => {
-          return response.json();
-      })
-      .catch((err) => console.log(err));
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
 };

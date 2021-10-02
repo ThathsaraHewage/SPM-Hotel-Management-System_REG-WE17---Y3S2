@@ -71,7 +71,7 @@ exports.getFoodItem = (req, res) => {
   return res.json(req.document);
 };
 
-exports.photo = (req, res, next) => {
+exports.dinningPhoto = (req, res, next) => {
   if (req.document.photo.data) {
     res.set("Content-Type", req.document.photo.contentType);
     return res.send(req.document.photo.data);
