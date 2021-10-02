@@ -321,7 +321,7 @@ const OrderFoodItems = ({ match }) => {
           onClick={onSubmit}
           className="btn btn-outline-primary mb-3 rounded-pill"
         >
-          Complete Your Booking
+          Complete Your Order
         </button>
       </div>
     </form>
@@ -330,8 +330,8 @@ const OrderFoodItems = ({ match }) => {
   return (
     <Base
       navigation=""
-      title="Book a Room"
-      description=" You can book a room of your selected category"
+      title="Order a Food Item"
+      description=" You can Order food Item of your selected category"
     >
       <div className="container bg-primary p-4">
         <div className="row bg-dark text-white rounded">
