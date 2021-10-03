@@ -3,6 +3,7 @@ import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import { AddBooking } from "../admin/helper/userapicall";
 import { isAutheticated } from "../auth/helper";
+import payment from "../core/images/cardsPic.png";
 
 
 const BookActivity = ({ match }) => {
@@ -211,6 +212,12 @@ const BookActivity = ({ match }) => {
 </div>
 <br/>
 <br/>
+<div className="m-2">
+        <center>
+          <img src={payment} style={{ width: "300px" }} />
+        </center>
+      </div>
+      <br />
       <div className="d-grid mt-3">
         <button
           type="submit"
