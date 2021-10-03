@@ -25,69 +25,81 @@ const ViewAllActivities = () => {
   }, []);
 
   return (
-    <Base navigation="" title="Customer" description="View All Activities">
+    <Base navigation="" title="Customer Activities" description="Discover the true meaning of elegance, grace & splendour at The Atrium
+    Leisure, where we bring you regal indulgence, outstanding individual
+    comforts & the best service amongst hotels in Badulla. Our 150 rooms
+    are expertly designed with every luxury in mind with affordable price
+    ranges specially for you, with a host of amenities and dining options;
+    whether in-room or from our restaurants, intuitive service & heavenly
+    Frette linen bedding, we guarantee a one of a kind holiday, fit for
+    you.">
       <div className="container p-4" id="themeColor">
-        <Link className="btn btn=md btn-dark mb-3" to={`/dinning`}>
+        <Link className="btn btn=md btn-dark mb-3" to={`/customer-home`}>
           <span className="">Go Back</span>
         </Link>
         <br />
-        <div className="row bg-dark">
-          {Activities.map((Activities, index) => {
-            return (
-              <div className="col-sm-3 bg-dark">
-                <div key={index} className="text-white rounded m-3 ">
-                  <div className="card text-center" id="themeColor">
+        <div class="row">
+        {Activities.map((Activities, index) => {
+          return (
+            <div class="col-sm-4">
+              <div className="card-body text-center  ">
+                <center>
+                  <div
+                    key={index}
+                    className="text-white mb-5 card border-info m-5"
+                  >
                     <div
                       style={{
                         alignSelf: "center",
-
-                        margin: 10,
+                        margin: 30,
                       }}
-                      id="themeColor"
                     >
                       <ActivitiesImageHelper
                         product={Activities}
                         className="card-img-top"
-                        alt="activity"
+                        alt=""
                       />
                     </div>
-                    <div className="card-body bg-dark rounded m-3">
-                      <h5 className="card-title">{Activities.title}</h5>
-                      <p className="card-text m-0">
-                        <b>Description:</b> {Activities.description}
+                    <div className="card-body bg-white text-dark rounded m-3">
+                      <h3 className="card-title">{Activities.title}</h3>
+                      <p className="card-text m-2">
+                        <b>Description:</b> <br />
+                        {Activities.description}
                       </p>
-                      <p className="card-text m-0">
+                      <p className="card-text m-2">
                         <b>Inclusions:</b> {Activities.inclusions}
                       </p>
+                      <button
+                        type="button"
+                        class="btn btn-secondary btn-lg rounded m-2"
+                        disabled
+                      >
+                        <p className="card-text m-0">
+                          <b>Price: </b>LKR {Activities.price}
+                        </p>
+                      </button>
                       <p className="card-text m-0">
-                        <b>Available Days:</b> {Activities.availableDate}
+                        <b>Available on:</b> {Activities.availableDate}
                       </p>
                       <p className="card-text m-0">
-                        <b>Available Time:</b> {Activities.availableTime}
-                      </p>
-                      <p className="card-text m-0">
-                        <b>Price:</b> {Activities.price}
+                        <b>Available from:</b> {Activities.availableTime}
                       </p>
                     </div>
-                    <Link
-                      to="/customer/bookactivity"
-                      style={{
-                        width: "60%",
-                        alignSelf: "center",
-                        margin: "10px",
-                        padding: "5px",
-                        color: "white",
-                      }}
-                      className="bg-dark rounded"
-                    >
-                      Select
+
+                    <Link to={`/customer/bookactivity`}>
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                        <span className="btn btn-primary rounded">Book Now</span>
+                      </div>
                     </Link>
+                    <br />
+                    <br />
                   </div>
-                </div>
+                </center>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
+      </div>
         <br />
         <div className="bg-dark text-white rounded"></div>
       </div>
