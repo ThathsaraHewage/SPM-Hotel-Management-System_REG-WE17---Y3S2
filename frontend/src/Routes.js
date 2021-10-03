@@ -54,6 +54,7 @@ import ViewACRooms from "./customer/viewACRooms";
 import ViewNonACRooms from "./customer/viewNonACRooms";
 import BookingroomDetails from "./customer/booking_roomDetails";
 import Booking_last from "./customer/booking_last";
+import OrderFoodItemsPayment from "./customer/orderFoodItemsPayment";
 
 const Routes = () => {
   return (
@@ -161,6 +162,11 @@ const Routes = () => {
         />
         <Route path="/order/food/:productId" exact component={OrderFoodItems} />
         <Route path="/customer/detailedVenue" exact component={DetailedVenue} />
+        <Route
+          path="/book/food/complete"
+          exact
+          component={OrderFoodItemsPayment}
+        />
         <Route
           path="/book/venue/:venueId"
           exact

@@ -1,4 +1,4 @@
-const DocumentOrder = require("../models/foodOrder.js");
+const Document = require("../models/foodOrder.js");
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
@@ -21,13 +21,13 @@ exports.orderFoodItem = (req, res) => {
     const { name, description, category, discount, price } = fields;
 
     //validating input fields
-    if (!name || !description || !category || !discount || !price) {
-      return res.status(400).json({
-        error: "Sorry ! Please include all fields",
-      });
-    }
+    // if (!name || !description || !category || !discount || !price) {
+    //   return res.status(400).json({
+    //     error: "Sorry ! Please include all fields",
+    //   });
+    // }
 
-    let document = new DocumentOrder(fields);
+    let document = new Document(fields);
 
     //handle file here
     if (file.photo) {

@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { AddAccomodationBooking } from "../admin/helper/userapicall";
+import { AddNewFoodOrder } from "../admin/helper/userapicall";
 import payment from "../core/images/cardsPic.png";
 
-const Booking_last = ({ match }) => {
+const OrderFoodItemsPayment = ({ match }) => {
   const [values, setValues] = useState({
     firstname: "",
     lastname: "",
     address: "",
     city: "",
-    days: "",
-    checkindate: "",
-    norooms: "",
+    name: "",
+    category: "",
     holdersname: "",
     cardnumber: "",
     cvv: "",
@@ -30,9 +29,8 @@ const Booking_last = ({ match }) => {
     lastname,
     address,
     city,
-    days,
-    checkindate,
-    norooms,
+    name,
+    category,
     holdersname,
     cardnumber,
     cvv,
@@ -61,7 +59,7 @@ const Booking_last = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    AddAccomodationBooking(formData)
+    AddNewFoodOrder(formData)
       .then((data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
@@ -72,9 +70,11 @@ const Booking_last = ({ match }) => {
             lastname: "",
             address: "",
             city: "",
-            days: "",
-            checkindate: "",
-            norooms: "",
+            name: "",
+            description: "",
+            category: "",
+            discount: 0,
+            price: "",
             holdersname: "",
             cardnumber: "",
             cvv: "",
@@ -169,42 +169,30 @@ const Booking_last = ({ match }) => {
           />
         </div>
 
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">
-            Number of days
-          </label>
+        <center>
+          <h4>You Order</h4>
+        </center>
+        <br />
+        <br />
+        <span>Food Name :</span>
+        <div className="form-group mt-2">
           <input
-            type="number"
-            onChange={handleChange("days")}
+            onChange={handleChange("name")}
+            name="photo"
             className="form-control"
-            placeholder=""
-            value={days}
+            placeholder="Food Name"
+            value={name}
           />
         </div>
 
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">
-            Check-In Date
-          </label>
+        <span>Category :</span>
+        <div className="form-group mt-2">
           <input
-            type="date"
-            onChange={handleChange("checkindate")}
+            onChange={handleChange("category")}
+            type="text"
             className="form-control"
-            placeholder=""
-            value={checkindate}
-          />
-        </div>
-
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">
-            Number of Rooms
-          </label>
-          <input
-            type="number"
-            onChange={handleChange("norooms")}
-            className="form-control"
-            placeholder=""
-            value={norooms}
+            placeholder="Food Category"
+            value={category}
           />
         </div>
       </div>
@@ -321,4 +309,4 @@ const Booking_last = ({ match }) => {
   );
 };
 
-export default Booking_last;
+export default OrderFoodItemsPayment;

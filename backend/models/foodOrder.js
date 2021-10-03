@@ -29,23 +29,13 @@ const foodOrderSchema = new mongoose.Schema(
       trim: true,
       required: true,
     },
-    description: {
-      type: String,
-      trim: true,
-      required: true,
-    },
+
     category: {
       type: String,
       required: true,
       trim: true,
     },
-    discount: {
-      type: Number,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
+
     holdersname: {
       type: String,
       required: true,
