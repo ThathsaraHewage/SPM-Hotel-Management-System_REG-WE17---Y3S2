@@ -10,7 +10,6 @@ const {
   removeProduct,
   updateActivityProduct,
   getAllActivities,
-  AddBooking,
 } = require("../controllers/activityController");
 
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
@@ -52,14 +51,5 @@ router.delete(
 );
 //listing all activities route
 router.get("/activities", getAllActivities);
-
-//Add new booking route
-router.post(
-  "/new-booking/add/:userId",
-  isSignedIn,
-  isAuthenticated,
-  isAdmin,
-  AddBooking
-);
 
 module.exports = router;

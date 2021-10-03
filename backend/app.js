@@ -18,6 +18,7 @@ const foodRoutes = require("./routes/foodRoutes");
 const foodBookingRoutes = require("./routes/foodBooking");
 //activity routes
 const activityRoutes = require("./routes/activityRoutes");
+const activityBookingRoutes = require("./routes/activityBookingRoutes");
 //accomodation routes
 const accomodationRoutes = require("./routes/accomodationRoutes");
 const accomodationBookingRoutes = require("./routes/Accomodationbooking");
@@ -41,6 +42,9 @@ app.use("/api", foodRoutes);
 app.use("/api", foodBookingRoutes);
 //activity routes
 app.use("/api", activityRoutes);
+app.use("/api", activityBookingRoutes);
+
+//accomadation routes
 app.use("/api", accomodationRoutes);
 app.use("/api", accomodationBookingRoutes);
 

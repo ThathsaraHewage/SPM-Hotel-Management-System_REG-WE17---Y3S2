@@ -25,7 +25,7 @@ const ViewAllActivities = () => {
   }, []);
 
   return (
-    <Base navigation="" title="Customer Activities" description="Discover the true meaning of elegance, grace & splendour at The Atrium
+    <Base navigation="" title="Activities" description="Discover the true meaning of elegance, grace & splendour at The Atrium
     Leisure, where we bring you regal indulgence, outstanding individual
     comforts & the best service amongst hotels in Badulla. Our 150 rooms
     are expertly designed with every luxury in mind with affordable price
@@ -33,7 +33,7 @@ const ViewAllActivities = () => {
     whether in-room or from our restaurants, intuitive service & heavenly
     Frette linen bedding, we guarantee a one of a kind holiday, fit for
     you.">
-      <div className="container p-4" id="themeColor">
+      <div className="container p-4">
         <Link className="btn btn=md btn-dark mb-3" to={`/customer-home`}>
           <span className="">Go Back</span>
         </Link>

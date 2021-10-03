@@ -51,7 +51,7 @@ const BookActivity = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    AddBooking(user._id, token, formData)
+    AddBooking(formData)
       .then((data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
@@ -139,7 +139,7 @@ const BookActivity = ({ match }) => {
              placeholder="Colombo"
              value={city}/>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <label class="form-label">Number of hours</label>
             <input type="number"
               onChange={handleChange("hours")}
@@ -147,7 +147,7 @@ const BookActivity = ({ match }) => {
               placeholder=""
               value={hours}/>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-3">
             <label for="inputZip" class="form-label">Check-In Date</label>
             <input type="date" 
                       onChange={handleChange("checkindate")}
@@ -188,7 +188,7 @@ const BookActivity = ({ match }) => {
                 placeholder="000"
                 value={cvv}/>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
               <label for="inputZip" class="form-label">Expire Date</label>
               <input  type="date" 
                onChange={handleChange("expdate")}
@@ -228,9 +228,10 @@ const BookActivity = ({ match }) => {
       
       <div className="row bg-dark text-white rounded">
         <div className="col-md-8 offset-md-2 mt-3 py-3">
+          {bookActivityForm()}
           {errorMessage()}
           {successMessage()}
-          {bookActivityForm()}
+          
         </div>
       </div>
       </div>

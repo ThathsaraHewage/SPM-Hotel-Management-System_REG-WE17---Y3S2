@@ -360,12 +360,11 @@ export const AddAccomodationBooking = (product) => {
 };
 
 //booking activities
-export const AddBooking = (userId, token, product) => {
-  return fetch(`${API}/new-booking/add/${userId}`, {
+export const AddBooking = (product) => {
+  return fetch(`${API}/new-book-activity`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`,
     },
     body: product,
   })
