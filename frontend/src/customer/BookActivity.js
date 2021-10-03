@@ -174,7 +174,9 @@ const BookActivity = ({ match }) => {
             </div>
             <div class="col-md-6">
               <label for="inputCity" class="form-label">Card Number</label>
-              <input  type="text" 
+              <input  type="tel" 
+                 minLength= {12}
+                 maxLength= {12}
                  onChange={handleChange("cardnumber")}
                  className="form-control"
                  placeholder="xxxxxxxxxxxxxx"
@@ -183,6 +185,7 @@ const BookActivity = ({ match }) => {
             <div class="col-md-4">
               <label for="inputState" class="form-label">CVV code</label>
               <input type="number" 
+                maxLength= {3}
                 onChange={handleChange("cvv")}
                 className="form-control"
                 placeholder="000"

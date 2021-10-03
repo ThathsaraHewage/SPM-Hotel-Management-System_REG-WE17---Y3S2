@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getAllActivities } from "../admin/helper/userapicall";
 import { isAutheticated } from "../auth/helper";
 import { ActivitiesImageHelper } from "../core/helper/ImageHelper";
+import logo from "../core/images/loggo.png";
 
 const ViewAllActivities = () => {
   const [Activities, setActivities] = useState([]);
@@ -103,6 +104,11 @@ const ViewAllActivities = () => {
         <br />
         <div className="bg-dark text-white rounded"></div>
       </div>
+      <center>
+      <img src={logo} style={{ width: "300px" }} />
+      </center>
+      <br />
+      <br />
       <center>
         <p style={{ color: "gray", fontSize: "14px" }}>
           Atrium Leisure, all rights reserved.
