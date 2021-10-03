@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 //Routes relates to venues
 const venueRoutes = require("./routes/venueRoutes");
+const booking = require("./routes/booking");
 //Food routes
 const foodRoutes = require("./routes/foodRoutes");
 const foodBookingRoutes = require("./routes/foodBooking");
@@ -34,6 +35,7 @@ app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 //Routes relates to venues
 app.use("/api", venueRoutes);
+app.use("/api", booking);
 //food item routes
 app.use("/api", foodRoutes);
 app.use("/api", foodBookingRoutes);

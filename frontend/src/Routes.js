@@ -7,7 +7,7 @@ import Signup from "./user/Signup";
 
 //role routes
 import UserRoutes from "./auth/helper/AdminRoutes";
-
+import EditorRoutes from "./auth/helper/EditorRoutes";
 //management dashboards
 import HomeAfterLogin from "./core/Home";
 

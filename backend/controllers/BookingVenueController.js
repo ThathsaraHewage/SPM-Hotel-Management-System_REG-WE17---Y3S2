@@ -9,7 +9,7 @@ const { sortBy } = require("lodash");
 ////////////////////////////////////////////////////////////////////
 
 ///////////////////adding a new room type///////////////
-exports.placeBooking = (req, res) => {
+exports.placeVenueBooking = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
 

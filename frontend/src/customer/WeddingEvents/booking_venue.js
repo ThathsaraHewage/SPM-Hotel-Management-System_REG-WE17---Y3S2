@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Base from "../../core/Base";
 import { Link } from "react-router-dom";
-import { PlaceBooking} from "../../admin/helper/userapicall";
-import { isAutheticated } from "../../auth/helper/index";
+import { placeBooking} from "../../admin/helper/userapicall";
+
 
 const BookingVenue = ({ match }) => {
-  const { user, token } = isAutheticated();
+  
   const [values, setValues] = useState({
     firstname:"",
     lastname:"",
@@ -51,7 +51,7 @@ const BookingVenue = ({ match }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
-    PlaceBooking(user._id, token, formData)
+    placeBooking(formData)
       .then((data) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
@@ -84,7 +84,7 @@ const BookingVenue = ({ match }) => {
         className="alert alert-danger mt-3"
         style={{ display: error ? " " : "none" }}
       >
-        <h4 style={{color:"black"}}>{error} failed !..Try again...</h4>
+        <h4 style={{color:"black"}}>{error} Booking Failed !..Try again...</h4>
       </div>
     );
   };
@@ -95,26 +95,14 @@ const BookingVenue = ({ match }) => {
         className="alert alert-success mt-3"
         style={{ display: createdProduct ? " " : "none" }}
       >
-        <h4 style={{color:"black"}}>successfully..</h4>
+        <h4 style={{color:"black"}}>Booking Successful!!!!</h4>
       </div>
     );
   };
 
   const bookingForm = () => (
     <form>
-      {/* <div className="form-group d-grid">
-        <label className="btn btn-block btn-primary">
-          <input
-            onChange={handleChange("photo")}
-            type="file"
-            name="photo"
-            accept="image"
-            placeholder="choose a file"
-            
-          />
-        </label>
-      </div> */}
-    
+     
     <br/>
       <br/>
       <center><h4>Your Details</h4></center>

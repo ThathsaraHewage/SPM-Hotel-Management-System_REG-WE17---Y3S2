@@ -331,12 +331,12 @@ export const getAllnonACRooms = () => {
     .catch((err) => console.log(err));
 };
 
-export const PlaceBooking = (userId, token, product) => {
-  return fetch(`${API}/venue/book/${userId}`, {
+export const placeBooking = ( product) => {
+  return fetch(`${API}/venue/book`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`,
+     
     },
     body: product,
   })

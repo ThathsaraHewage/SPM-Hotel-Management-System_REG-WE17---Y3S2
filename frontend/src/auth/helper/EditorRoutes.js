@@ -2,12 +2,12 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { isAutheticated } from "./index";
 
-const AdminRoutes = ({ component: Component, ...rest }) => {
+const EditorRoutes = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) =>
-        isAutheticated() && isAutheticated().user.role === 4? (
+        isAutheticated() && isAutheticated().user.role === 1? (
           <Component {...props} />
         ) : (
           <Redirect
@@ -22,4 +22,4 @@ const AdminRoutes = ({ component: Component, ...rest }) => {
   );
 };
 
-export default AdminRoutes;
+export default EditorRoutes;

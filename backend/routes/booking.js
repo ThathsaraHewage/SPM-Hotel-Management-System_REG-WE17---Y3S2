@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 //importing////////////////////////////////////////////////////////////
-const { placeBooking} = require("../controllers/BookingVenueController");
+const { placeVenueBooking} = require("../controllers/BookingVenueController");
 const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
 const { getUserById } = require("../controllers/user");
 
@@ -10,13 +10,7 @@ const { getUserById } = require("../controllers/user");
 router.param("userId", getUserById);
 
 //Add a booking
-router.post(
-  "/venue/book/:userId",
-  isSignedIn,
-  isAuthenticated,
-  isAdmin,
-  placeBooking
-);
+router.post( "/venue/book",placeVenueBooking);
 
 
 module.exports = router;
