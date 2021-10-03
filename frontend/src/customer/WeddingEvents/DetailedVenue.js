@@ -120,7 +120,7 @@ const DetailedVenue = () => {
                     <div className="card-body bg-white text-dark rounded m-2">
                       <h3 className="card-title">{Venues.venueName}</h3>
                       <p className="card-text m-2">
-                        <b>Description:</b> <br />
+                         <br />
                         {Venues.venueDescription}
                       </p>
                       <p className="card-text m-2">
