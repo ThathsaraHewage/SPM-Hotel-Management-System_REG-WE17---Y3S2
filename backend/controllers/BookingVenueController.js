@@ -16,18 +16,40 @@ exports.placeBooking = (req, res) => {
   form.parse(req, (err, fields, file) => {
     if (err) {
       return res.status(400).json({
-        error: "problem with booking !"
+        error: "problem with booking !",
       });
     }
 
     //Destructuring the feilds
-    const{ firstname,lastname,emailAddress,phoneNumber,preferredDate,additionalComment,holdersname,cardnumber,cvv,expdate} = fields;
+    const {
+      firstname,
+      lastname,
+      phoneNumber,
+      venueName,
+      occupancy,
+      preferredDate,
+      holdersname,
+      cardnumber,
+      cvv,
+      expdate,
+    } = fields;
 
     //validating input fields
-    if (!firstname || !lastname || !emailAddress || !phoneNumber ) {
-        return res.status(400).json({
-            error:"Sorry ! Please include all fields"
-        });
+    if (
+      !firstname ||
+      !lastname ||
+      !phoneNumber ||
+      !venueName ||
+      !occupancy ||
+      !preferredDate ||
+      !holdersname ||
+      !cardnumber ||
+      !cvv ||
+      !expdate
+    ) {
+      return res.status(400).json({
+        error: "Sorry ! Please include all fields",
+      });
     }
 
     let document = new Document(fields);
@@ -36,10 +58,10 @@ exports.placeBooking = (req, res) => {
     if (file.photo) {
       if (file.photo.size > 3000000) {
         return res.status(400).json({
-          error: "File size too big!"
+          error: "File size too big!",
         });
       }
-      document.photo.data = fs.readFileSync(file.photo.path)
+      document.photo.data = fs.readFileSync(file.photo.path);
       document.photo.contentType = file.photo.type;
     }
 
@@ -47,7 +69,7 @@ exports.placeBooking = (req, res) => {
     document.save((err, document) => {
       if (err) {
         res.status(400).json({
-          error: "Booking saving in DB failed"
+          error: "Booking saving in DB failed",
         });
       }
       res.json(document);

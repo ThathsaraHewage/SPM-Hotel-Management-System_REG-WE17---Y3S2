@@ -2,21 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 //importing////////////////////////////////////////////////////////////
-const { placeBooking} = require("../controllers/BookingVenueController");
-const { isSignedIn, isAuthenticated, isAdmin } = require("../controllers/auth");
+const { placeBooking } = require("../controllers/BookingVenueController");
 const { getUserById } = require("../controllers/user");
 
 //all of params
 router.param("userId", getUserById);
 
 //Add a booking
-router.post(
-  "/venue/book/:userId",
-  isSignedIn,
-  isAuthenticated,
-  isAdmin,
-  placeBooking
-);
-
+router.post("/venue/book", placeBooking);
 
 module.exports = router;
