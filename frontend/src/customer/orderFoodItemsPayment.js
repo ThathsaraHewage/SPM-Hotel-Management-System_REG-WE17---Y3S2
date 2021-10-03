@@ -125,6 +125,7 @@ const OrderFoodItemsPayment = ({ match }) => {
           <label class="form-label">First Name</label>
           <input
             type="text"
+            maxLength={15}
             onChange={handleChange("firstname")}
             className="form-control"
             placeholder="Jason"
@@ -136,6 +137,7 @@ const OrderFoodItemsPayment = ({ match }) => {
           <label class="form-label">Last Name</label>
           <input
             type="text"
+            maxLength={15}
             onChange={handleChange("lastname")}
             className="form-control"
             placeholder="Derulo"
@@ -162,6 +164,7 @@ const OrderFoodItemsPayment = ({ match }) => {
           </label>
           <input
             type="text"
+            maxLength={25}
             onChange={handleChange("city")}
             className="form-control"
             placeholder=""
@@ -178,22 +181,28 @@ const OrderFoodItemsPayment = ({ match }) => {
         <div className="form-group mt-2">
           <input
             onChange={handleChange("name")}
+            maxLength={30}
             name="photo"
             className="form-control"
             placeholder="Food Name"
             value={name}
           />
         </div>
-
-        <span>Category :</span>
         <div className="form-group mt-2">
-          <input
+          <label>Choose Category</label>
+          <select
             onChange={handleChange("category")}
             type="text"
             className="form-control"
             placeholder="Food Category"
             value={category}
-          />
+          >
+            <option>Select Category...</option>
+            <option>Sri lankan</option>
+            <option>Chinese</option>
+            <option>Indian</option>
+            <option>Japanese</option>
+          </select>
         </div>
       </div>
       <br />
@@ -208,6 +217,7 @@ const OrderFoodItemsPayment = ({ match }) => {
           <label class="form-label">Card Holder's Name</label>
           <input
             type="text"
+            maxLength={30}
             onChange={handleChange("holdersname")}
             className="form-control"
             placeholder=""
@@ -219,7 +229,9 @@ const OrderFoodItemsPayment = ({ match }) => {
             Card Number
           </label>
           <input
-            type="text"
+            type="tel"
+            minLength={16}
+            maxLength={16}
             onChange={handleChange("cardnumber")}
             className="form-control"
             placeholder=""
@@ -232,6 +244,7 @@ const OrderFoodItemsPayment = ({ match }) => {
           </label>
           <input
             type="number"
+            maxLength={3}
             onChange={handleChange("cvv")}
             className="form-control"
             placeholder=""

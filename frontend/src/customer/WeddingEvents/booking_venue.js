@@ -126,6 +126,7 @@ const BookingVenue = ({ match }) => {
           <label class="form-label">First Name</label>
           <input
             type="text"
+            maxLength={15}
             onChange={handleChange("firstname")}
             className="form-control"
             placeholder="Jason"
@@ -136,6 +137,7 @@ const BookingVenue = ({ match }) => {
           <label class="form-label">Last Name</label>
           <input
             type="text"
+            maxLength={15}
             onChange={handleChange("lastname")}
             className="form-control"
             placeholder="Derulo"
@@ -147,7 +149,9 @@ const BookingVenue = ({ match }) => {
             PhoneNumber
           </label>
           <input
-            type="text"
+            type="tel"
+            minLength={10}
+            maxLength={10}
             onChange={handleChange("phoneNumber")}
             className="form-control"
             placeholder=""
@@ -171,7 +175,7 @@ const BookingVenue = ({ match }) => {
             Occupancy
           </label>
           <input
-            type="text"
+            type="number"
             onChange={handleChange("occupancy")}
             className="form-control"
             placeholder=""
@@ -185,6 +189,7 @@ const BookingVenue = ({ match }) => {
           </label>
           <input
             type="text"
+            maxLength={30}
             onChange={handleChange("venueName")}
             className="form-control"
             placeholder=""
@@ -206,6 +211,7 @@ const BookingVenue = ({ match }) => {
           <label class="form-label">Card Holder's Name</label>
           <input
             type="text"
+            maxLength={30}
             onChange={handleChange("holdersname")}
             className="form-control"
             placeholder=""
@@ -217,7 +223,9 @@ const BookingVenue = ({ match }) => {
             Card Number
           </label>
           <input
-            type="text"
+            type="tel"
+            minLength={16}
+            maxLength={16}
             onChange={handleChange("cardnumber")}
             className="form-control"
             placeholder=""
@@ -230,6 +238,7 @@ const BookingVenue = ({ match }) => {
           </label>
           <input
             type="number"
+            minLength={3}
             onChange={handleChange("cvv")}
             className="form-control"
             placeholder=""

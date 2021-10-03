@@ -125,6 +125,7 @@ const Booking_last = ({ match }) => {
           <label class="form-label">First Name</label>
           <input
             type="text"
+            maxLength={15}
             onChange={handleChange("firstname")}
             className="form-control"
             placeholder="Jason"
@@ -136,6 +137,7 @@ const Booking_last = ({ match }) => {
           <label class="form-label">Last Name</label>
           <input
             type="text"
+            maxLength={15}
             onChange={handleChange("lastname")}
             className="form-control"
             placeholder="Derulo"
@@ -162,6 +164,7 @@ const Booking_last = ({ match }) => {
           </label>
           <input
             type="text"
+            maxLength={25}
             onChange={handleChange("city")}
             className="form-control"
             placeholder=""
@@ -220,6 +223,7 @@ const Booking_last = ({ match }) => {
           <label class="form-label">Card Holder's Name</label>
           <input
             type="text"
+            maxLength={30}
             onChange={handleChange("holdersname")}
             className="form-control"
             placeholder=""
@@ -232,6 +236,7 @@ const Booking_last = ({ match }) => {
           </label>
           <input
             type="text"
+            maxLength={16}
             onChange={handleChange("cardnumber")}
             className="form-control"
             placeholder=""
@@ -244,6 +249,7 @@ const Booking_last = ({ match }) => {
           </label>
           <input
             type="number"
+            maxLength={3}
             onChange={handleChange("cvv")}
             className="form-control"
             placeholder=""

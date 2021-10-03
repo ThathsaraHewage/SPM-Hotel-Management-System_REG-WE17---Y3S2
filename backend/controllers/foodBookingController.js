@@ -2,7 +2,7 @@ const Document = require("../models/foodOrder.js");
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
-const { sortBy } = require("lodash");
+const { sortBy, add } = require("lodash");
 
 // order food
 
@@ -18,14 +18,36 @@ exports.orderFoodItem = (req, res) => {
     }
 
     //Destructuring the feilds
-    const { name, description, category, discount, price } = fields;
+    const {
+      name,
+      category,
+      firstname,
+      lastname,
+      address,
+      city,
+      holdersname,
+      cardnumber,
+      cvv,
+      expdate,
+    } = fields;
 
     //validating input fields
-    // if (!name || !description || !category || !discount || !price) {
-    //   return res.status(400).json({
-    //     error: "Sorry ! Please include all fields",
-    //   });
-    // }
+    if (
+      !name ||
+      !category ||
+      !firstname ||
+      !lastname ||
+      !address ||
+      !city ||
+      !holdersname ||
+      !cardnumber ||
+      !cvv ||
+      !expdate
+    ) {
+      return res.status(400).json({
+        error: "Sorry ! Please include all fields",
+      });
+    }
 
     let document = new Document(fields);
 
